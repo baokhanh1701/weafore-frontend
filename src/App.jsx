@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// import SignIn from "./pages/SignIn";
+ import SignIn from "./pages/SignIn/main.jsx";
 // import SignUp from "./pages/SignUp";
 // import Calendars from "./pages/Calendars";
 // import CreateEvent from "./pages/CreateEvent";
@@ -20,7 +20,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const LandingPage = React.lazy(() => import("./pages/LandingPage"));
 // const EventPage = React.lazy(() => import("./pages/EventPage"));
-// const Home = React.lazy(() => import("./pages/Home"))
+const Home = React.lazy(() => import("./pages/Home"))
 
 function App() {
   const routes = [
@@ -46,20 +46,20 @@ function App() {
     //   path: "/event/manage/:eid",
     //   element: <EventPage />,
     // },
-    // {
-    //   path: "/signin",
-    //   element: <SignIn />,
-    // },
+    {
+      path: "/signin",
+      element: <SignIn />,
+    },
     // {
     //   path: "/signup",
     //   element: <SignUp />,
     // },
-    // {
-    //   path: "/home",
-    //   element: <Suspense fallback={<div>Loading...</div>}>
-    //     <Home />
-    //   </Suspense>,
-    // },
+    {
+      path: "/home",
+      element: <Suspense fallback={<div>Loading...</div>}>
+        <Home />
+      </Suspense>,
+    },
     // {
     //   path: "/home/calendars",
     //   element: <Calendars />,
