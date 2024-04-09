@@ -1,8 +1,7 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-
-// import SignIn from "./pages/SignIn";
+import SignIn from "./pages/SignIn/main.jsx";
 // import SignUp from "./pages/SignUp";
 import ControlPanel from "./pages/ControlPanel";
 import Schedule from "./pages/Schedule";
@@ -39,9 +38,19 @@ function App() {
       ),
     },
     // {
-    //   path: "/signin",
-    //   element: <SignIn />,
+    //   path: "/event/:eid",
+    //   element: <Suspense fallback={<div>Loading...</div>}>
+    //     <EventPage />
+    //   </Suspense>,
     // },
+    // {
+    //   path: "/event/manage/:eid",
+    //   element: <EventPage />,
+    // },
+    {
+      path: "/signin",
+      element: <SignIn />,
+    },
     // {
     //   path: "/signup",
     //   element: <SignUp />,
@@ -62,17 +71,65 @@ function App() {
           <div className="wave"></div>
         </div>
       }>
-          <Home />
+        <Home />
       </Suspense>,
     },
     {
       path: "/control-panel",
       element: <ControlPanel />
-  },
-  {
+    },
+    {
       path: "/schedule",
       element: <Schedule />
-  }
+    }
+    // {
+    //   path: "/home/calendars",
+    //   element: <Calendars />,
+    // },
+    // {
+    //   path: "/personal",
+    //   element: <Personal />,
+    // },
+    // {
+    //   path: "/discover",
+    //   element: <DiscoverEvents />,
+    // },
+    // {
+    //   path: "/discover",
+    //   element: <DiscoverEvents />,
+    // },
+    // {
+    //   path: "/user/:id",
+    //   element: <UserProfile />,
+    // },
+    // {
+    //   path: "/user/:uid/settings",
+    //   element: <Settings />,
+    // },
+    // {
+    //   path: "/events-manager",
+    //   element: <EventsManager />,
+    // },
+    // {
+    //   path: "/create-event",
+    //   element: <CreateEvent />,
+    // },
+    // {
+    //   path: "/event-settings",
+    //   element: <EventSettings />,
+    // },
+    // {
+    //   path: "/calendars-manager",
+    //   element: <CalendarsManager />,
+    // },
+    // {
+    //   path: "/create-calendar",
+    //   element: <CreateCalendar />,
+    // },
+    // {
+    //   path: "/calendar-settings",
+    //   element: <CalendarSettings />,
+    // },
   ];
   return (
     <BrowserRouter>
