@@ -1,16 +1,15 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { Layout } from 'antd';
 import SignIn from "./pages/SignIn/main.jsx";
-// import SignUp from "./pages/SignUp";
 import ControlPanel from "./pages/ControlPanel";
 import Schedule from "./pages/Schedule";
+import WeaforeSider from "./components/Sider.jsx";
 
 const LandingPage = React.lazy(() => import("./pages/LandingPage"));
-// const EventPage = React.lazy(() => import("./pages/EventPage"));
 const Home = React.lazy(() => import("./pages/Home"))
-
 function App() {
+
   const routes = [
     // {
     //   path: "/*",
@@ -47,22 +46,53 @@ function App() {
     //   element: <SignUp />,
     // },
     {
-      path: "/home",
+      path: '/home',
       element: <Suspense fallback={
         <div>
           Loading...
         </div>
       }>
-        <Home />
+        <Layout style={{
+          height: "100vh"
+        }}>
+          <WeaforeSider />
+
+          <Home />
+        </Layout>
+
       </Suspense>,
     },
     {
-      path: "/control-panel",
-      element: <ControlPanel />
+      path: '/control-panel',
+      element: <Suspense fallback={
+        <div>
+          Loading...
+        </div>
+      }>
+        <Layout style={{
+          height: "100%"
+        }}>
+          <WeaforeSider />
+          <ControlPanel />
+        </Layout>
+
+      </Suspense>,
     },
     {
-      path: "/schedule",
-      element: <Schedule />
+      path: '/schedule',
+      element: <Suspense fallback={
+        <div>
+          Loading...
+        </div>
+      }>
+        <Layout style={{
+          height: "100%"
+        }}>
+          <WeaforeSider />
+          <Schedule />
+        </Layout>
+
+      </Suspense>,
     }
     // {
     //   path: "/home/calendars",
@@ -115,8 +145,6 @@ function App() {
   ];
   return (
     <BrowserRouter>
-      {/* <AuthProvider>
-        <AppProvider> */}
       <Routes>
         {routes.map((route) => (
           <Route
@@ -125,9 +153,8 @@ function App() {
             element={route.element}
           />
         ))}
+
       </Routes>
-      {/* </AppProvider>
-      </AuthProvider> */}
     </BrowserRouter>
   );
 }
