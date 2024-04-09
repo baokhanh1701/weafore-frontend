@@ -1,9 +1,7 @@
 // import React from 'react';
 // import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Layout, theme } from 'antd';
-import { Typography } from 'antd';
 import Sider from '../components/Sider';
-const { Title } = Typography;
 
 const { Header, Content, Footer } = Layout;
 
