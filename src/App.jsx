@@ -21,16 +21,7 @@ function App() {
       element: (
         <Suspense fallback={
           <div className="center">
-            <div className="wave"></div>
-            <div className="wave"></div>
-            <div className="wave"></div>
-            <div className="wave"></div>
-            <div className="wave"></div>
-            <div className="wave"></div>
-            <div className="wave"></div>
-            <div className="wave"></div>
-            <div className="wave"></div>
-            <div className="wave"></div>
+            Loading...
           </div>
         }>
           <LandingPage />
@@ -58,17 +49,8 @@ function App() {
     {
       path: "/home",
       element: <Suspense fallback={
-        <div className="center">
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
+        <div>
+          Loading...
         </div>
       }>
         <Home />

@@ -23,8 +23,8 @@ export const SignUpContainer = styled.div`
    transform: translateX(100%);
    opacity: 1;
    z-index: 5;
- ` 
- : null}
+ `
+    : null}
 `;
 
 
@@ -103,7 +103,7 @@ overflow: hidden;
 transition: transform 0.6s ease-in-out;
 z-index: 100;
 ${props =>
- props.signinIn !== true ? `transform: translateX(-100%);` : null}
+    props.signinIn !== true ? `transform: translateX(-100%);` : null}
 `;
 
 export const Overlay = styled.div`

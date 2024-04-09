@@ -10,7 +10,7 @@ function main() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
-    const hisstory = useNavigate();
+    const navigate = useNavigate();
 
     async function SignInn(e) {
         if (!email || !password || !validator.isEmail(email)) {
@@ -23,7 +23,7 @@ function main() {
             })
                 .then(res => {
                     if (res.data.message === "Login successful") {
-                        hisstory('/home', { state: { username: res.data.username } });
+                        navigate('/home', { state: { username: res.data.username } });
                     }
                     else if (res.data === "Incorrect password") {
                         alert("Incorrect password");

@@ -13,8 +13,6 @@ const { Header, Content, Footer } = Layout;
 //     }),
 // );
 
-
-
 const Home = () => {
     const {
         token: { colorBgContainer, borderRadiusLG },
