@@ -1,6 +1,11 @@
-import { Layout, theme, Typography, Flex } from 'antd';
+import { Layout, theme, Typography, Flex, Button } from 'antd';
 import HumidityPlot from '../components/HumidityPlot';
 import TemperatureLine from '../components/TemperatureLine';
+import getAllFeeds from '../adafruitio/getAllFeeds';
+import getTemperatureFeedData from '../adafruitio/getTemperatureFeedData';
+import getLedFeedData from '../adafruitio/getLedFeedData';
+import getHumidityFeedData from '../adafruitio/getHumidityFeedData';
+import getLightFeedData from '../adafruitio/getLightFeedData';
 const { Content } = Layout;
 const { Text } = Typography;
 
@@ -71,6 +76,11 @@ const Home = () => {
                             <TemperatureLine />
 
                         </Flex>
+                        <Button onClick={getTemperatureFeedData}> Temp</Button>
+                        <Button onClick={getLightFeedData}> Light</Button>
+                        <Button onClick={getHumidityFeedData}> Humid</Button>
+                        <Button onClick={getLedFeedData}> Led</Button>
+
                     </div>
                 </Content>
             </Layout>
