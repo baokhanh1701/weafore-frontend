@@ -1,11 +1,11 @@
 import "./styles.css";
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from 'axios';
 import * as Components from './Components.js';
 import { useNavigate, Link } from 'react-router-dom';
 import validator from 'validator';
 
-function main() {
+function SignIn() {
     const [signIn, toggle] = useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -121,4 +121,4 @@ function main() {
     )
 }
 
-export default main;
+export default SignIn;

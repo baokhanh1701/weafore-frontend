@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from 'antd';
-import SignIn from "./pages/SignIn/main.jsx";
+import SignIn from "./pages/SignIn/SignIn.jsx";
 import ControlPanel from "./pages/ControlPanel";
 import Schedule from "./pages/Schedule";
 import WeaforeSider from "./components/Sider.jsx";
