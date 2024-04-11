@@ -3,7 +3,7 @@ import axios from 'axios';
 const getTemperatureFeedData = async () => {
     await axios.get('https://io.adafruit.com/api/v2/NhanPham1411/feeds/temperature/data', {
         headers: {
-            "X-AIO-Key": "aio_gMrw46fc21Q6JHHwdar3KgKvtCQb"
+            "X-AIO-Key": import.meta.env.VITE_ADAFRUIT_API_KEY
         }
     }).then(res => {
         console.log(res.data)

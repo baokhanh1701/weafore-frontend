@@ -9,7 +9,7 @@ import WeaforeSider from "./components/Sider.jsx";
 const LandingPage = React.lazy(() => import("./pages/LandingPage"));
 const Home = React.lazy(() => import("./pages/Home"))
 function App() {
-
+  console.log(import.meta.env.VITE_ADAFRUIT_API_KEY  ) // "123"
   const routes = [
     // {
     //   path: "/*",

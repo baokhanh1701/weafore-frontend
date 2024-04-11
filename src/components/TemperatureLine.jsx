@@ -26,7 +26,6 @@ const TemperatureLine = () => {
                 type: 'text',
                 data: [new Date('2017-12-17'), 100],
                 style: {
-                    text: '2014-03, 受比特币影响，blockchain 1834',
                     wordWrap: true,
                     wordWrapWidth: 164,
                     dx: -174,
@@ -50,7 +49,6 @@ const TemperatureLine = () => {
         <Flex
             vertical={true}
             style={{
-                width: "70rem",
                 padding: 24,
             }}
         >

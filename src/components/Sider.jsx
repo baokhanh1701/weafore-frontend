@@ -52,7 +52,7 @@ const WeaforeSider = () => {
             onCollapse={(collapsed, type) => {
                 console.log(collapsed, type);
             }}
-            style={{ height: '120vh' }}
+            style={{ minHeight: '100%' }}
 
         >
             <WeaforeSiderIcon />
