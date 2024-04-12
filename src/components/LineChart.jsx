@@ -29,7 +29,6 @@ const LineChart = ({ data }) => {
                 width: "65vw",
             }}
         >
-            <Statistic title="Curent:" value={data[0] ? data[0].value : "0"} precision={2} />
             <Line   {...config} />;
         </Flex>
     )

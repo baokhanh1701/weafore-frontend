@@ -45,8 +45,6 @@ const Home = () => {
         setLight(result)
     }
 
-
-
     useEffect(() => {
         fetchTemperatureData()
         fetchHumidityData()

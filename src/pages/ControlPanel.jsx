@@ -3,9 +3,10 @@ import jsonata from 'jsonata';
 import { Layout, theme, Typography, Switch, Flex, Card } from 'antd';
 import getServoFeedData from '../adafruitio/getServoFeedData';
 import getLedFeedData from '../adafruitio/getLedFeedData';
-
-import LineChart from '../components/LineChart';
 import DualLineChart from '../components/DualLineChart';
+import createServoFeedData from '../adafruitio/createServoFeedData';
+import createLedFeedData from '../adafruitio/createLedFeedData';
+
 const { Content } = Layout;
 const { Text } = Typography;
 
@@ -15,8 +16,8 @@ const ControlPanel = () => {
     const [led, setLed] = useState([])
     const [servo, setServo] = useState([])
     const jsonata_expression = jsonata("$reverse($.{'value': $number($.value),'date': $.created_at})")
-    const [servoSwitch, setServoSwitch] = useState(false)
-    const [ledSwitch, setLedSwitch] = useState(false)
+    const [servoSwitch, setServoSwitch] = useState(0)
+    const [ledSwitch, setLedSwitch] = useState(0)
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
@@ -35,6 +36,21 @@ const ControlPanel = () => {
         const result = await jsonata_expression.evaluate(led_data)
         setLedSwitch(result[result.length - 1].value)
         setLed(result)
+    }
+
+    const switchLed = async (value) => {
+        console.log(`switch to ${+value}`);
+        setLedSwitch(+value)
+        await createLedFeedData(+value)
+        alert('Switched led')
+    }
+
+    const switchServo = async (value) => {
+        console.log(`switch to ${+value}`);
+        setServoSwitch(+value)
+
+        await createServoFeedData(+value)
+        alert('Switched servo')
     }
 
     useEffect(() => {
@@ -64,7 +80,6 @@ const ControlPanel = () => {
                 style={{
                     margin: '24px 16px 0',
                     width: "100vw",
-
                 }}
             >
                 <div
@@ -101,25 +116,30 @@ const ControlPanel = () => {
                                         fontSize: "1rem"
                                     }}> Control your roof with one click. </Text>
                                     <br />
-                                    <Switch style={{
-                                        width: "10rem",
-                                    }} />
-                                </Flex>
-                                <Flex
-                                    style={{
-                                        marginBottom: "5rem",
-                                    }}
-                                    wrap="wrap"
-                                    gap={"small"}
-                                >
-                                    <DualLineChart data={servo} />
+                                    <Switch
+                                        style={{
+                                            width: "5rem",
+                                        }}
+                                        value={servoSwitch}
+                                        onChange={switchServo}
+
+                                    />
+                                    <Flex
+                                        style={{
+                                            marginTop: "7rem",
+                                            marginBottom: "7rem"
+                                        }}
+                                        wrap="wrap"
+                                        gap={"small"}
+                                    >
+                                        <DualLineChart data={servo.slice(Math.max(servo.length - 20, 0))} />
+                                    </Flex>
                                 </Flex>
                             </div>
                         </Flex>
 
                         <Flex
                             style={{
-                                width: "50%",
                                 height: "50%",
                                 paddingBottom: 24,
                             }}
@@ -137,19 +157,24 @@ const ControlPanel = () => {
                                 }}> Turn On/Off your LED. </Text>
                                 <br />
                                 <Switch style={{
-                                    width: "10rem",
-                                }} />
+                                    width: "5rem",
+                                }}
+                                    value={ledSwitch}
+                                    onChange={switchLed}
+                                />
+                                <Flex
+                                    style={{
+                                        marginTop: "7rem",
+                                        marginBottom: "7rem"
+
+                                    }}
+                                    wrap="wrap"
+                                    gap={"small"}
+                                >
+                                    {/* <LineChart data={led} /> */}
+                                    <DualLineChart data={led.slice(Math.max(led.length - 20, 0))} />
+                                </Flex>
                             </Flex>
-                        </Flex>
-                        <Flex
-                            style={{
-                                marginBottom: "5rem",
-                            }}
-                            wrap="wrap"
-                            gap={"small"}
-                        >
-                            {/* <LineChart data={led} /> */}
-                            <DualLineChart data={led} />
                         </Flex>
                     </Flex>
                 </div>

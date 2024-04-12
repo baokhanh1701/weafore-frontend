@@ -5,11 +5,12 @@ import SignIn from "./pages/SignIn/SignIn.jsx";
 import ControlPanel from "./pages/ControlPanel";
 import Schedule from "./pages/Schedule";
 import WeaforeSider from "./components/Sider.jsx";
+import LoadingAnimation from "./components/LoadingAnimation.jsx";
 
 const LandingPage = React.lazy(() => import("./pages/LandingPage"));
 const Home = React.lazy(() => import("./pages/Home"))
 function App() {
-  console.log(import.meta.env.VITE_ADAFRUIT_API_KEY  ) // "123"
+  console.log(import.meta.env.VITE_ADAFRUIT_API_KEY) // "123"
   const routes = [
     // {
     //   path: "/*",
@@ -20,36 +21,28 @@ function App() {
       element: (
         <Suspense fallback={
           <div className="center">
-            Loading...
+            <LoadingAnimation />
           </div>
         }>
           <LandingPage />
         </Suspense>
       ),
     },
-    // {
-    //   path: "/event/:eid",
-    //   element: <Suspense fallback={<div>Loading...</div>}>
-    //     <EventPage />
-    //   </Suspense>,
-    // },
-    // {
-    //   path: "/event/manage/:eid",
-    //   element: <EventPage />,
-    // },
     {
       path: "/signin",
       element: <SignIn />,
     },
-    // {
-    //   path: "/signup",
-    //   element: <SignUp />,
-    // },
     {
       path: '/home',
       element: <Suspense fallback={
-        <div>
-          Loading...
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          <LoadingAnimation />
         </div>
       }>
         <Layout style={{
@@ -65,8 +58,14 @@ function App() {
     {
       path: '/control-panel',
       element: <Suspense fallback={
-        <div>
-          Loading...
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          <LoadingAnimation />
         </div>
       }>
         <Layout style={{
@@ -81,8 +80,14 @@ function App() {
     {
       path: '/schedule',
       element: <Suspense fallback={
-        <div>
-          Loading...
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          <LoadingAnimation />
         </div>
       }>
         <Layout style={{
