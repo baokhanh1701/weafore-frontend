@@ -1,8 +1,9 @@
 import { Liquid } from '@ant-design/plots';
 import { Statistic, Flex } from 'antd';
-const HumidityPlot = () => {
+const HumidityPlot = ({ data }) => {
+  const humidity_data = data[0] ? data[0].value : 0;
   const config = {
-    percent: 0.7,
+    percent: humidity_data / 100,
     style: {
       outlineBorder: 4,
       outlineDistance: 8,
@@ -17,7 +18,7 @@ const HumidityPlot = () => {
         padding: 24,
       }}
     >
-      <Statistic title="Current Humidity (%)" value={70.23} precision={2} />
+      <Statistic title="Current: " value={data[0] ? data[0].value : "Loading..."} precision={2} />
       <Liquid
         {...config} />
     </Flex>

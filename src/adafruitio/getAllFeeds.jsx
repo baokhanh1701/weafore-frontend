@@ -2,7 +2,7 @@ import axios from 'axios';
 // import * as dotenv from 'dotenv';
 
 const getAllFeeds = async () => {
-    await axios.get('https://io.adafruit.com/api/v2/NhanPham1411/feeds/', {
+    const result = await axios.get('https://io.adafruit.com/api/v2/NhanPham1411/feeds/', {
         headers: {
             "X-AIO-Key": import.meta.env.VITE_ADAFRUIT_API_KEY
         }
@@ -12,6 +12,7 @@ const getAllFeeds = async () => {
     }).catch(e => {
         console.log(e)
     })
+    return result;
 }
 
 export default getAllFeeds;

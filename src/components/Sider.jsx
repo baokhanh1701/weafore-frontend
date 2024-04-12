@@ -46,52 +46,58 @@ const WeaforeSider = () => {
     const navigate = useNavigate()
 
     return (
-        <Sider
-            breakpoint="lg"
-            collapsedWidth="0"
-            onCollapse={(collapsed, type) => {
-                console.log(collapsed, type);
-            }}
-            style={{ minHeight: '100%' }}
-
-        >
-            <WeaforeSiderIcon />
-            <Menu
-                theme="dark"
-                mode="inline"
-                defaultSelectedKeys={['0']}
-
-                items={
-                    [
-                        {
-                            label: "Dashboard",
-                            key: "/home",
-                            icon: <AppstoreOutlined />
-                        },
-                        {
-                            label: "Control Panel",
-                            key: "/control-panel",
-                            icon: <CloudOutlined />
-                        },
-                        {
-                            label: "Schedule",
-                            key: "/schedule",
-                            icon: <ScheduleOutlined />
-                        }
-                    ]
-                }
-                onClick={({ key }) => {
-                    if (key === "signout") {
-                        //TODO: SignOut
-                    }
-                    else {
-                        //TODO: Navigate
-                        navigate(key)
-                    }
+        <div>
+            <Sider
+                breakpoint="lg"
+                collapsedWidth="0"
+                onCollapse={(collapsed, type) => {
+                    console.log(collapsed, type);
                 }}
-            />
-            
-        </Sider>
+                style={{
+                    height: "280vh",
+                    minHeight: '100%'
+                }}
+
+            >
+                <WeaforeSiderIcon />
+                <Menu
+                    theme="dark"
+                    mode="inline"
+                    defaultSelectedKeys={['0']}
+
+                    items={
+                        [
+                            {
+                                label: "Dashboard",
+                                key: "/home",
+                                icon: <AppstoreOutlined />
+                            },
+                            {
+                                label: "Control Panel",
+                                key: "/control-panel",
+                                icon: <CloudOutlined />
+                            },
+                            {
+                                label: "Schedule",
+                                key: "/schedule",
+                                icon: <ScheduleOutlined />
+                            }
+                        ]
+                    }
+                    onClick={({ key }) => {
+                        if (key === "signout") {
+                            //TODO: SignOut
+                        }
+                        else {
+                            //TODO: Navigate
+                            navigate(key)
+                        }
+                    }}
+                />
+
+            </Sider>
+        </div>
+
     )
 }
 

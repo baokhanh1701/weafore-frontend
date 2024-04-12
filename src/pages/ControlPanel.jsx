@@ -1,13 +1,46 @@
+import { useState, useEffect } from 'react';
+import jsonata from 'jsonata';
 import { Layout, theme, Typography, Switch, Flex, Card } from 'antd';
+import getServoFeedData from '../adafruitio/getServoFeedData';
+import getLedFeedData from '../adafruitio/getLedFeedData';
 
+import LineChart from '../components/LineChart';
+import DualLineChart from '../components/DualLineChart';
 const { Content } = Layout;
 const { Text } = Typography;
 
 
+
 const ControlPanel = () => {
+    const [led, setLed] = useState([])
+    const [servo, setServo] = useState([])
+    const jsonata_expression = jsonata("$reverse($.{'value': $number($.value),'date': $.created_at})")
+    const [servoSwitch, setServoSwitch] = useState(false)
+    const [ledSwitch, setLedSwitch] = useState(false)
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
+
+    const fetchServoData = async () => {
+        const servo_data = await getServoFeedData()
+        // console.log(servo_data)
+        const result = await jsonata_expression.evaluate(servo_data)
+        setServoSwitch(result[result.length - 1].value)
+        setServo(result)
+    }
+
+    const fetchLedData = async () => {
+        const led_data = await getLedFeedData()
+        // console.log(led_data)
+        const result = await jsonata_expression.evaluate(led_data)
+        setLedSwitch(result[result.length - 1].value)
+        setLed(result)
+    }
+
+    useEffect(() => {
+        fetchLedData()
+        fetchServoData()
+    }, [])
 
     return (
         <Layout>
@@ -52,8 +85,6 @@ const ControlPanel = () => {
                     >
                         <Flex
                             style={{
-                                width: "50%",
-                                height: "50%",
                                 paddingBottom: 24,
                             }}
                         >
@@ -70,19 +101,22 @@ const ControlPanel = () => {
                                         fontSize: "1rem"
                                     }}> Control your roof with one click. </Text>
                                     <br />
-                                    <Switch />
-
+                                    <Switch style={{
+                                        width: "10rem",
+                                    }} />
+                                </Flex>
+                                <Flex
+                                    style={{
+                                        marginBottom: "5rem",
+                                    }}
+                                    wrap="wrap"
+                                    gap={"small"}
+                                >
+                                    <DualLineChart data={servo} />
                                 </Flex>
                             </div>
-
-                            <div>
-                                <Card title="Default size card" extra={<a href="#">More</a>}>
-                                    <p>Card content</p>
-                                    <p>Card content</p>
-                                    <p>Card content</p>
-                                </Card>
-                            </div>
                         </Flex>
+
                         <Flex
                             style={{
                                 width: "50%",
@@ -102,16 +136,20 @@ const ControlPanel = () => {
                                     fontSize: "1rem"
                                 }}> Turn On/Off your LED. </Text>
                                 <br />
-                                <Switch />
+                                <Switch style={{
+                                    width: "10rem",
+                                }} />
                             </Flex>
-                            <div>
-                                <Card title="Default size card" extra={<a href="#">More</a>}>
-                                    <p>Card content</p>
-                                    <p>Card content</p>
-                                    <p>Card content</p>
-                                </Card>
-                            </div>
-
+                        </Flex>
+                        <Flex
+                            style={{
+                                marginBottom: "5rem",
+                            }}
+                            wrap="wrap"
+                            gap={"small"}
+                        >
+                            {/* <LineChart data={led} /> */}
+                            <DualLineChart data={led} />
                         </Flex>
                     </Flex>
                 </div>

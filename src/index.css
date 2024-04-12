@@ -142,10 +142,6 @@ figure.jsx-963396{position:relative}
 /*! CSS Used from: Embedded */
 @media (max-width:450px){.gap-3.jsx-85398371{gap:.5rem}}@media (max-width:650px){.bottom-section.jsx-85398371>div.jsx-85398371{width:100%}}
 
-html {
-    max-height: "100%";
-}
-
 body {
     margin: 0;
 }
