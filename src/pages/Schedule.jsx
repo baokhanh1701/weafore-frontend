@@ -20,13 +20,13 @@ const Schedule = () => {
                     style={{
                         width: "100vw",
                         height: "10vh",
-                        backgroundImage: "linear-gradient(to right, #1677ff  0%, #0000 100%)"
+                        backgroundColor: "#1677ff"
                     }}
                 >
                     <Text
                         style={{
                             fontSize: "3.5em",
-                            color: "#003a8c",
+                            color: "white",
                             paddingLeft: "2rem"
 
                         }}>

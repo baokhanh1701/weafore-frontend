@@ -54,7 +54,7 @@ const WeaforeSider = () => {
                     console.log(collapsed, type);
                 }}
                 style={{
-                    height: "280vh",
+                    // height: "280vh",
                     minHeight: '100%'
                 }}
 

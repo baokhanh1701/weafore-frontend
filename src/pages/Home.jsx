@@ -56,14 +56,15 @@ const Home = () => {
                 <div
                     style={{
                         width: "100vw",
-                        backgroundImage: "linear-gradient(to right, #1677ff  0%, #0000 100%)"
+                        height: "10vh",
+                        backgroundColor: "#1677ff"
                     }}
                 >
                     <Text
                         style={{
                             fontSize: "3.5em",
                             paddingLeft: "2rem",
-                            color: "#003a8c"
+                            color: "white"
                         }}>
                         Dashboard
                     </Text>

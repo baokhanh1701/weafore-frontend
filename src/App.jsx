@@ -46,10 +46,9 @@ function App() {
         </div>
       }>
         <Layout style={{
-          height: "100vh"
+          height: "100%"
         }}>
           <WeaforeSider />
-
           <Home />
         </Layout>
 
@@ -71,7 +70,9 @@ function App() {
         <Layout style={{
           height: "100%"
         }}>
-          <WeaforeSider />
+          <WeaforeSider style={{
+            height: "100vh"
+          }} />
           <ControlPanel />
         </Layout>
 
