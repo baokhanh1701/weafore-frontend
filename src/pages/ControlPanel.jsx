@@ -91,7 +91,6 @@ const ControlPanel = () => {
                     }}
                 >
                     <Flex
-                        vertical={true}
                         style={{
                             marginBottom: "5rem",
                         }}
