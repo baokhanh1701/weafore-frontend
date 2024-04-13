@@ -7,6 +7,8 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import getWeatherHistory from '../services/weatherapi/getWeatherHistory';
 import jsonata from 'jsonata';
 import LineChart from '../components/LineChart';
+import getWeatherFuture from '../services/weatherapi/getWeatherFuture';
+import getWeatherForecast from '../services/weatherapi/getWeatherForecast';
 const { Content } = Layout;
 const { Text } = Typography;
 
@@ -46,7 +48,7 @@ const Schedule = () => {
             ||
             parseInt(nowCondition.substring(0, nowCondition.indexOf(' ', 0))) <= 5
         )
-        const futureCondition = (
+        const forecastCondition = (
             nowCondition == 'in a day'
             ||
             parseInt(nowCondition.substring(3, nowCondition.indexOf(' ', 3))) <= 5
@@ -65,15 +67,28 @@ const Schedule = () => {
             setAlertStatus('success')
             setWeatherModalOpen(true)
             // console.log(_temperatureLine)
-            setWeatherHistory(weatherHistoryAtDate)
+            setWeatherHistory(weatherHistoryAtDate?.forecast?.forecastday[0]?.day)
             setTemperatureLine(_temperatureLine)
             setHumidityLine(_humidityLine)
-        } else if (futureCondition) {
-            // console.log("condition 2")
-            setAlertStatus('success')
-            setWeatherModalOpen(true)
+        } else if (forecastCondition) {
+            console.log(newDate?.format('YYYY-MM-DD'))
+            // const weatherFutureAtDate = await getWeatherFuture(newDate?.format('YYYY-MM-DD'))
+            const _weatherForecastAtDate = await getWeatherForecast();
+            const forecast_date_jsonata = jsonata(`$.forecast.forecastday[date='${newDate?.format('YYYY-MM-DD')}']`)
+            const weatherForecastAtDate = await forecast_date_jsonata.evaluate(_weatherForecastAtDate)
+            const future_temperature_line_jsonata = jsonata("$.hour.{   'date': $substringAfter($.time, ' '),    'value': $.temp_c}");
+            const future_humidity_line_jsonata = jsonata("$.hour.{   'date': $substringAfter($.time, ' '),    'value': $.humidity}")
+            const _temperatureLine = await future_temperature_line_jsonata.evaluate(weatherForecastAtDate)
+            const _humidityLine = await future_humidity_line_jsonata.evaluate(weatherForecastAtDate)
+
+            console.log(weatherForecastAtDate)
             setDate(newDate);
             setSelectedDate(newDate);
+            setAlertStatus('success')
+            setWeatherModalOpen(true)
+            setWeatherHistory(weatherForecastAtDate?.day)
+            setTemperatureLine(_temperatureLine)
+            setHumidityLine(_humidityLine)
         } else {
             setAlertStatus('error')
         }
@@ -138,6 +153,24 @@ const Schedule = () => {
                             Ho Chi Minh City, Vietnam
                         </Text>
                         <WeatherCards currentWeather={currentWeather ? currentWeather : "Loading"} />
+                        <Text
+                            style={{
+                                fontSize: "2.5em",
+                            }}
+                            strong
+                        >
+                            Weather History and Forecast
+                        </Text>
+                        <br />
+                        <Text
+                            style={{
+                                fontSize: "1.75em",
+                            }}
+                            italic
+                        >
+                            Click on a date to see its weather report.
+                        </Text>
+                        <br />
                         <Alert
                             showIcon
                             // message={
@@ -173,12 +206,12 @@ const Schedule = () => {
                             >
                                 Overall
                             </Text>
-                            <p>Average Humidity: {weatherHistory?.forecast?.forecastday[0]?.day?.avghumidity} (%)</p>
-                            <p>Average Temperature: {weatherHistory?.forecast?.forecastday[0]?.day?.avgtemp_c} (°C)</p>
-                            <p>Mininum Temperature: {weatherHistory?.forecast?.forecastday[0]?.day?.mintemp_c} (°C)</p>
-                            <p>Maximum Temperature: {weatherHistory?.forecast?.forecastday[0]?.day?.maxtemp_c} (°C)</p>
-                            <p>Total Precipitation: {weatherHistory?.forecast?.forecastday[0]?.day?.totalprecip_mm} (mm) </p>
-                            <p>Chance of rain: {weatherHistory?.forecast?.forecastday[0]?.day?.daily_will_it_rain} (%) </p>
+                            <p>Average Humidity: {weatherHistory?.avghumidity} (%)</p>
+                            <p>Average Temperature: {weatherHistory?.avgtemp_c} (°C)</p>
+                            <p>Mininum Temperature: {weatherHistory?.mintemp_c} (°C)</p>
+                            <p>Maximum Temperature: {weatherHistory?.maxtemp_c} (°C)</p>
+                            <p>Total Precipitation: {weatherHistory?.totalprecip_mm} (mm) </p>
+                            <p>Chance of rain: {weatherHistory?.daily_will_it_rain} (%) </p>
                             <br />
 
                             <Text
@@ -205,6 +238,7 @@ const Schedule = () => {
                             <br />
                             <LineChart data={humidityLine} />
                         </Modal>
+
                         <Calendar
                             onSelect={openWeatherModal}
                             onPanelChange={onPanelChange}
