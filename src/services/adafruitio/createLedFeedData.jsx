@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // https://io.adafruit.com/api/v2/NhanPham1411/feeds/humidity/data
 const createLedFeedData = async (value) => {
-    console.log(value)
+    // console.log(value)
     const result = await axios.post('https://io.adafruit.com/api/v2/NhanPham1411/feeds/led/data',
         {
             "value": value

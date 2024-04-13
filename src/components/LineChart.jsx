@@ -9,8 +9,8 @@ const LineChart = ({ data }) => {
         xField: 'date',
         yField: 'value',
         point: {
-            shapeField: 'square',
-            sizeField: 4,
+            shapeField: 'circle',
+            sizeField: 2,
         },
         interaction: {
             tooltip: {
@@ -20,13 +20,14 @@ const LineChart = ({ data }) => {
         style: {
             lineWidth: 2,
         },
+        
     };
 
     return (
         <Flex
             vertical={true}
             style={{
-                width: "65vw",
+                width: "75%",
             }}
         >
             <Line   {...config} />;

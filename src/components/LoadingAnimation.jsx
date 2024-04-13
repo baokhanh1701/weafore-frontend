@@ -4,7 +4,7 @@ const LoadingAnimation = () => {
     return (
         <div>
             <div
-                class="loader"></div>
+                className="loader"></div>
         </div>
     )
 }

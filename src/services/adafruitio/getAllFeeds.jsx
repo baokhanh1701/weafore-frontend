@@ -7,7 +7,6 @@ const getAllFeeds = async () => {
             "X-AIO-Key": import.meta.env.VITE_ADAFRUIT_API_KEY
         }
     }).then(res => {
-        console.log(res.data)
         return (res.data)
     }).catch(e => {
         console.log(e)

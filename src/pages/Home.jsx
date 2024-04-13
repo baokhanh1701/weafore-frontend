@@ -1,11 +1,11 @@
-import { Layout, theme, Typography, Flex, Button } from 'antd';
+import { Layout, theme, Typography, Flex, Card } from 'antd';
 import HumidityPlot from '../components/HumidityPlot';
 import LineChart from '../components/LineChart';
-import getTemperatureFeedData from '../adafruitio/getTemperatureFeedData';
-import getLedFeedData from '../adafruitio/getLedFeedData';
-import getHumidityFeedData from '../adafruitio/getHumidityFeedData';
-import getLightFeedData from '../adafruitio/getLightFeedData';
+import getTemperatureFeedData from '../services/adafruitio/getTemperatureFeedData';
+import getHumidityFeedData from '../services/adafruitio/getHumidityFeedData';
+import getLightFeedData from '../services/adafruitio/getLightFeedData';
 import { useEffect, useState } from 'react';
+import getCurrentWeatherApi from '../services/weatherapi/getCurrentWeatherApi';
 import jsonata from 'jsonata';
 import GaugeChart from '../components/GaugeChart';
 const { Content } = Layout;
@@ -13,6 +13,7 @@ const { Text } = Typography;
 
 
 const Home = () => {
+    const [currentWeather, setCurrentWeather] = useState({})
     const [temperature, setTemperature] = useState([])
     const [humidity, setHumidity] = useState([])
     const [light, setLight] = useState([])
@@ -45,10 +46,16 @@ const Home = () => {
         setLight(result)
     }
 
+    const fetchCurrentWeatherData = async () => {
+        const result = await getCurrentWeatherApi();
+        setCurrentWeather(result);
+        return result;
+    }
     useEffect(() => {
         fetchTemperatureData()
         fetchHumidityData()
         fetchLightData()
+        fetchCurrentWeatherData()
     }, [])
     return (
         <Layout>
@@ -150,6 +157,31 @@ const Home = () => {
                             wrap="wrap"
                             gap={"small"}
                         >
+                            <Card
+                                title="Light"
+                                bordered={true}
+                                cover={
+                                    <img
+                                        alt="example"
+                                        src={
+                                            currentWeather?.current?.is_day ?
+                                                "https://media.istockphoto.com/id/1007768414/photo/blue-sky-with-bright-sun-and-clouds.jpg?s=612x612&w=0&k=20&c=MGd2-v42lNF7Ie6TtsYoKnohdCfOPFSPQt5XOz4uOy4="
+                                                : "https://st2.depositphotos.com/4164031/7029/i/450/depositphotos_70298385-stock-photo-deep-space.jpg"
+                                        }
+                                        width={200}
+                                        height={200}
+                                    />
+                                }
+                            >
+
+                                <Text strong italic>
+                                    Status: {currentWeather?.current?.is_day ? "Good Day Ahead!" : "Sleep Tight!"}
+                                </Text>
+                                <br />
+                                Cloud Coverage: {currentWeather?.current?.cloud ? currentWeather?.current?.cloud : "Loading"} (%)
+                                <br />
+                                UV Index: {currentWeather?.current?.uv ? currentWeather?.current?.uv : "Loading"}
+                            </Card>
                             <LineChart data={light} />
                         </Flex>
                         {/* <Button onClick={getTemperatureFeedData}> Temp</Button>

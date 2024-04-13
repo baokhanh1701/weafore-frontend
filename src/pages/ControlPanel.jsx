@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import jsonata from 'jsonata';
 import { Layout, theme, Typography, Switch, Flex, Card } from 'antd';
-import getServoFeedData from '../adafruitio/getServoFeedData';
-import getLedFeedData from '../adafruitio/getLedFeedData';
+import getServoFeedData from '../services/adafruitio/getServoFeedData'
+import getLedFeedData from '../services/adafruitio/getLedFeedData';
 import DualLineChart from '../components/DualLineChart';
-import createServoFeedData from '../adafruitio/createServoFeedData';
-import createLedFeedData from '../adafruitio/createLedFeedData';
+import createServoFeedData from '../services/adafruitio/createServoFeedData';
+import createLedFeedData from '../services/adafruitio/createLedFeedData';
 
 const { Content } = Layout;
 const { Text } = Typography;
@@ -39,7 +39,7 @@ const ControlPanel = () => {
     }
 
     const switchLed = async (value) => {
-        console.log(`switch to ${+value}`);
+        // console.log(`switch to ${+value}`);
         setLedSwitch(+value)
         await createLedFeedData(+value)
         alert('Switched led')

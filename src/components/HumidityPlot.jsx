@@ -8,6 +8,8 @@ const HumidityPlot = ({ data }) => {
       outlineBorder: 4,
       outlineDistance: 8,
       waveLength: 128,
+      backgroundFill: "#5BBCFF",
+      shape: 'pin',
     },
   };
   return (
