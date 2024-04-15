@@ -9,7 +9,7 @@ export default function Footer() {
                     className="jsx-3325839890 jsx-4002731451"
 
                 >
-                    Host Delightful Events
+                    Weafore 
                 </h2>
                 <a
                     className="jsx-3325839890 jsx-4002731451 btn cta-btn"
@@ -61,7 +61,7 @@ export default function Footer() {
                                         className="jsx-715640837 links"
 
                                     >
-                                        <a
+                                        {/* <a
                                         >
                                             Events
                                         </a>
@@ -82,14 +82,14 @@ export default function Footer() {
 
                                         >
                                             Help
-                                        </a>
+                                        </a> */}
                                     </div>
                                 </div>
                                 <div
                                     className="jsx-4254674824 icons flex-center"
 
                                 >
-                                    <a
+                                    {/* <a
                                         className="jsx-4254674824 flex-center"
                                         aria-label="Contact Us"
                                         href="mailto:
@@ -109,7 +109,7 @@ export default function Footer() {
 
                                             />
                                         </svg>
-                                    </a>
+                                    </a> */}
                                     {/* <a
                                         className="jsx-4254674824 flex-center"
                                         aria-label="Twitter"
