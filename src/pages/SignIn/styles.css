@@ -7,7 +7,7 @@
 }
 
 .main {
-  background-image: url("./login_background.jpg");
+  background-image: url("/login_background.jpg");
   display: flex;
   justify-content: center;
   align-items: center;
