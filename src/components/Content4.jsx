@@ -445,7 +445,7 @@ export default function Content4() {
                                 className="jsx-3228315364"
 
                             >
-                             <img src="../public/roof-control.png" style={{width: '500px'}}/>
+                             <img src="/roof-control.png" style={{width: '500px'}}/>
                             </figure>
                         </div>
                         <div
@@ -462,7 +462,7 @@ export default function Content4() {
                                 className="jsx-1919699553"
 
                             >
-                                <img src="../public/light-control.png" style={{width: '500px'}}/>
+                                <img src="/light-control.png" style={{width: '500px'}}/>
                             </figure>
                         </div>
                     </div>

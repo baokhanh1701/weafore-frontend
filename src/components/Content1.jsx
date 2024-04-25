@@ -20,7 +20,7 @@ export default function Content1() {
                     zIndex: -1,
                     objectFit: 'cover'
                 }}>
-                    <source src="../public/landing_house1.mp4" type="video/mp4" />
+                    <source src="/landing_house1.mp4" type="video/mp4" />
                 </video>
                 <div
                     className="jsx-3325839890 jsx-4002731451 hero-text"
