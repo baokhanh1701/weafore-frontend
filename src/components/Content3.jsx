@@ -88,7 +88,7 @@ export default function Content3() {
                                         <img
                                             className="jsx-2946098250"
                                             style={{ width: '500px', height: '200px' }}
-                                            src="../public/chart-weafore.png"
+                                            src="/chart-weafore.png"
 
                                         />
                                     </div>
@@ -99,7 +99,7 @@ export default function Content3() {
                                         <img
                                             className="jsx-2946098250"
                                             style={{ width: '500px', height: '250px' }}
-                                            src="../public/schedule-chart.png"
+                                            src="/schedule-chart.png"
 
                                         />
                                     </div>
@@ -497,7 +497,7 @@ export default function Content3() {
                                     className="jsx-4152493568 ui flex-start"
                                     
                                 >
-                                    <img src="../public/April_2024.png" alt="Class Schedule" style={{width: 500}} />
+                                    <img src="/April_2024.png" alt="Class Schedule" style={{width: 500}} />
                                 </div>
                             </div>
                             <div
