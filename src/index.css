@@ -478,7 +478,6 @@ button:focus:not(:focus-visible) {
 }
 
 svg {
-    vertical-align: middle;
     width: 1rem;
     height: 1rem;
     display: block
@@ -532,11 +531,6 @@ a:hover {
 
 button:disabled {
     opacity: .7
-}
-
-[type=button],
-button {
-    -webkit-appearance: button
 }
 
 [type=button]:not(:disabled),
@@ -1665,7 +1659,7 @@ figure.jsx-963396 {
 .cover-photo.jsx-1538834607 {
     width: 100%;
     padding-bottom: 50%;
-    background-image: url(https://lu.ma/marketing/homepage/event-cover.jpg);
+    background-image: url(https://media.istockphoto.com/id/491701259/photo/blue-sky-with-sun.jpg?s=612x612&w=0&k=20&c=aB7c-e0YFezBb8cgSykiEcAh_2fXEie3inIudnsNa9g=);
     background-size: cover;
     background-position: center
 }
@@ -2077,7 +2071,7 @@ figure.jsx-963396 {
 }
 
 .feature-panel.jsx-1513211866 .bottom-content.jsx-1513211866 .avatar.jsx-1513211866 {
-    background: linear-gradient(150deg, rgba(255, 255, 255, .1333333333), rgba(255, 255, 255, .6666666667))
+    background: linear-gradient(150deg, rgba(189, 18, 18, 0.133), rgba(216, 18, 18, 0.667))
 }
 
 .feature-panel.jsx-1513211866 .bottom-content.jsx-1513211866 .content.jsx-1513211866 {
@@ -2167,7 +2161,8 @@ figure.jsx-963396 {
 
 .feature-panel.jsx-4152493568 {
     background: linear-gradient(320deg, #2083ff, rgba(92, 235, 52, 0)), linear-gradient(180deg, #4cccff 0, #188ebd 100%);
-    overflow: hidden
+    overflow: hidden;
+    height: 700px;
 }
 
 .feature-panel.jsx-4152493568 .top-color.jsx-4152493568 {
@@ -4678,4 +4673,14 @@ body {
     100% {
         left: var(--l, 105%)
     }
+}
+
+.back-video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
 }
