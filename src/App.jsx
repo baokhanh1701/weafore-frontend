@@ -6,6 +6,8 @@ import ControlPanel from "./pages/ControlPanel";
 import Schedule from "./pages/Schedule";
 import WeaforeSider from "./components/Sider.jsx";
 import LoadingAnimation from "./components/LoadingAnimation.jsx";
+import ProtectedRoute from '../server/ProtectedRoute.jsx';
+
 
 const LandingPage = React.lazy(() => import("./pages/LandingPage"));
 const Home = React.lazy(() => import("./pages/Home"))
@@ -33,71 +35,80 @@ function App() {
     },
     {
       path: '/home',
-      element: <Suspense fallback={
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-          }}
-        >
-          <LoadingAnimation />
-        </div>
-      }>
-        <Layout style={{
-          height: "100%"
-        }}>
-          <WeaforeSider />
-          <Home />
-        </Layout>
-
-      </Suspense>,
+      element: (
+        <ProtectedRoute>
+          <Suspense fallback={
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <LoadingAnimation />
+            </div>
+          }>
+            <Layout style={{
+              height: "100%"
+            }}>
+              <WeaforeSider />
+              <Home />
+            </Layout>
+          </Suspense>
+        </ProtectedRoute>
+      ),
     },
     {
       path: '/control-panel',
-      element: <Suspense fallback={
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-          }}
-        >
-          <LoadingAnimation />
-        </div>
-      }>
-        <Layout style={{
-          height: "100%"
-        }}>
-          <WeaforeSider style={{
-            height: "100vh"
-          }} />
-          <ControlPanel />
-        </Layout>
-
-      </Suspense>,
+      element: (
+        <ProtectedRoute>
+          <Suspense fallback={
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <LoadingAnimation />
+            </div>
+          }>
+            <Layout style={{
+              height: "100%"
+            }}>
+              <WeaforeSider style={{
+                height: "100vh"
+              }} />
+              <ControlPanel />
+            </Layout>
+          </Suspense>
+        </ProtectedRoute>
+      ),
     },
     {
       path: '/schedule',
-      element: <Suspense fallback={
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-          }}
-        >
-          <LoadingAnimation />
-        </div>
-      }>
-        <Layout style={{
-          height: "100%"
-        }}>
-          <WeaforeSider />
-          <Schedule />
-        </Layout>
-
-      </Suspense>,
+      element: (
+        <ProtectedRoute>
+          <Suspense fallback={
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <LoadingAnimation />
+            </div>
+          }>
+            <Layout style={{
+              height: "100%"
+            }}>
+              <WeaforeSider />
+              <Schedule />
+            </Layout>
+          </Suspense>
+        </ProtectedRoute>
+      ),
     }
     // {
     //   path: "/home/calendars",
