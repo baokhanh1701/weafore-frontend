@@ -1,8 +1,5 @@
-# React + Vite
+## WEAFORE  - Weather forecasting system and automatic roofing
+## weafore-frontend.vercel.app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Weafore is a project that combines the two majors of computer science and computer engineering. Hardware devices include a YoloBit circuit, servo engine, and infrared, temperature, humidity, light sensors.... Using Arduino and Adafruit for the hardware system. The API is sent from Adafruit for use in the back end of the website. The lights and canopy system will turn on and off automatically based on the weather collected from sensors. In addition, users can view current weather information and forecasts, turn lights on and off, and manually cover machines on the website. 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
