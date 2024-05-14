@@ -18,7 +18,7 @@ function SignIn() {
         }
         e.preventDefault();
         try {
-            await axios.post('http://localhost:8000/signin', {
+            await axios.post('https://weafore-backend-git-main-baokhanh1701s-projects.vercel.app/signin', {
                 username, email, password
             })
                 .then(res => {
@@ -47,7 +47,7 @@ function SignIn() {
         }
         e.preventDefault();
         try {
-            await axios.post('http://localhost:8000/signup', {
+            await axios.post('https://weafore-backend-git-main-baokhanh1701s-projects.vercel.app/signup', {
                 username, email, password
             })
                 .then(res => {
