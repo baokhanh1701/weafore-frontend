@@ -7,8 +7,8 @@ import validator from 'validator';
 
 function SignIn() {
     const PROXY_URL = 'https://weafore-backend-git-main-baokhanh1701s-projects.vercel.app'
-    const URL_SIGNIN = 'https://signin'
-    const URL_SIGNUP = 'https://signup'
+    const URL_SIGNIN = '/signin'
+    const URL_SIGNUP = '/signup'
     const [signIn, toggle] = useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -21,9 +21,19 @@ function SignIn() {
         }
         e.preventDefault();
         try {
-            await axios.post(PROXY_URL + URL_SIGNIN, {
-                username, email, password
-            })
+            await fetch(PROXY_URL + URL_SIGNIN,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        "username": username,
+                        "email": email, "password": password
+                    })
+                }
+            )
                 .then(res => {
                     if (res.data.message === "Login successful") {
                         navigate('/home', { state: { username: res.data.username } });
@@ -50,9 +60,19 @@ function SignIn() {
         }
         e.preventDefault();
         try {
-            await axios.post(PROXY_URL + URL_SIGNUP, {
-                username, email, password
-            })
+            await fetch(PROXY_URL + URL_SIGNIN,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        "username": username,
+                        "email": email, "password": password
+                    })
+                }
+            )
                 .then(res => {
                     if (res.data === "User already exists") {
                         alert("User already exists");
