@@ -6,6 +6,9 @@ import { useNavigate, Link } from 'react-router-dom';
 import validator from 'validator';
 
 function SignIn() {
+    const PROXY_URL = 'https://weafore-backend-git-main-baokhanh1701s-projects.vercel.app'
+    const URL_SIGNIN = 'https://signin'
+    const URL_SIGNUP = 'https://signup'
     const [signIn, toggle] = useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -18,7 +21,7 @@ function SignIn() {
         }
         e.preventDefault();
         try {
-            await axios.post('https://weafore-backend-git-main-baokhanh1701s-projects.vercel.app/signin', {
+            await axios.post(PROXY_URL + URL_SIGNIN, {
                 username, email, password
             })
                 .then(res => {
@@ -47,7 +50,7 @@ function SignIn() {
         }
         e.preventDefault();
         try {
-            await axios.post('https://weafore-backend-git-main-baokhanh1701s-projects.vercel.app/signup', {
+            await axios.post(PROXY_URL + URL_SIGNUP, {
                 username, email, password
             })
                 .then(res => {
