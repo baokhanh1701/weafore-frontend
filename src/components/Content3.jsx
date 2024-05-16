@@ -345,7 +345,7 @@ export default function Content3() {
                                                 >
                                                     <img
                                                         className="jsx-1513211866"
-                                                        src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-6/440972025_1557582271474467_581818565309166266_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=x970TLarbfkQ7kNvgFlMw03&_nc_ht=scontent.fsgn8-4.fna&oh=00_AYBpKXPvUaQpLNpAyGkwLDqQi4QKvH0iFeUfE7y7fZB4Yg&oe=6643B133"
+                                                        src="https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png"
 
                                                     />
                                                 </div>
@@ -414,7 +414,7 @@ export default function Content3() {
                                                 >
                                                     <img
                                                         className="jsx-1513211866"
-                                                        src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-6/400446046_3666574423629296_4500133341789105478_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=5AS2XhaBrA8Q7kNvgGGEbYP&_nc_ht=scontent.fsgn8-4.fna&oh=00_AYAZ6b8OL-koNjduq4Ltxtgn4UgtHY-ANVoDathmLWNDDA&oe=6643A5D3"
+                                                        src="https://icons.veryicon.com/png/o/miscellaneous/user-avatar/user-avatar-male-5.png"
 
                                                     />
                                                 </div>
