@@ -45,6 +45,14 @@ export default function Content1() {
                     >
                         Join with us
                     </a>
+                    <br></br>
+                    <a
+                        className="jsx-3325839890 jsx-4002731451 btn cta-btn"
+                        href="/home"
+                        onClick={() => localStorage.setItem('username', 'Guest')}
+                        >
+                        Guest Login
+                    </a>
                 </div>
                 <br></br>
 <br></br>
