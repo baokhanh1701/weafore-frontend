@@ -6,7 +6,6 @@ import getLedFeedData from '../services/adafruitio/getLedFeedData';
 import DualLineChart from '../components/DualLineChart';
 import createServoFeedData from '../services/adafruitio/createServoFeedData';
 import createLedFeedData from '../services/adafruitio/createLedFeedData';
-
 const { Content } = Layout;
 const { Text } = Typography;
 
@@ -65,8 +64,7 @@ const ControlPanel = () => {
                     width: "100vw",
                     height: "10vh",
                     backgroundColor: "#1677ff",
-                    // backgroundImage: 'url("/public/radiant-gradient.svg")',
-                    // backgroundAttachment: 'fixed'
+
                 }}
             >
                 <Text
@@ -90,7 +88,7 @@ const ControlPanel = () => {
                         minHeight: 360,
                         background: colorBgContainer,
                         borderRadius: borderRadiusLG,
-                        backgroundImage: 'url("/public/scattered-forcefields.svg")',
+                        backgroundImage: 'url("/scattered-forcefields.svg")',
                         backgroundAttachment: 'fixed'
                     }}
                 >
