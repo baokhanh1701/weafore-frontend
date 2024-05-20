@@ -62,7 +62,7 @@ const ControlPanel = () => {
         <Layout>
             <div
                 style={{
-                    width: "100%",
+                    width: "100vw",
                     height: "10vh",
                     backgroundColor: "#1677ff"
                 }}
@@ -70,7 +70,7 @@ const ControlPanel = () => {
                 <Text
                     style={{
                         fontSize: "3.5em",
-                        paddingLeft: "2rem",
+                        paddingLeft: "1.5rem",
                         color: "white"
                     }}>
                     Control Panel
@@ -79,7 +79,7 @@ const ControlPanel = () => {
             <Content
                 style={{
                     margin: '24px 16px 0',
-                    width: "100%",
+                    width: "100vw",
                 }}
             >
                 <div
@@ -98,83 +98,82 @@ const ControlPanel = () => {
                         gap={"small"}
                     >
                         <Flex
+                            vertical={true}
                             style={{
                                 paddingBottom: 24,
+                                border: "2px solid #030852",
+                                padding: "3rem",
+                                margin: "0.75rem",
+                                borderRadius: "10px",
                             }}
                         >
-                            <div>
-                                <Flex vertical={true}
-                                    style={{
-                                        paddingRight: "5rem"
-                                    }}
-                                >
-                                    <Text style={{
-                                        fontSize: "2rem"
-                                    }}> Roof Control Switch </Text>
-                                    <Text style={{
-                                        fontSize: "1rem"
-                                    }}> Control your roof with one click. </Text>
-                                    <br />
-                                    <Switch
-                                        style={{
-                                            width: "5rem",
-                                        }}
-                                        value={servoSwitch}
-                                        onChange={switchServo}
 
-                                    />
-                                    <Flex
-                                        style={{
-                                            marginTop: "7rem",
-                                            marginBottom: "7rem"
-                                        }}
-                                        wrap="wrap"
-                                        gap={"small"}
-                                    >
-                                        <DualLineChart data={servo.slice(Math.max(servo.length - 20, 0))} />
-                                    </Flex>
-                                </Flex>
-                            </div>
-                        </Flex>
-
-                        <Flex
-                            style={{
-                                height: "50%",
-                                paddingBottom: 24,
-                            }}
-                        >
-                            <Flex vertical={true}
+                            <Text style={{
+                                fontSize: "2rem",
+                                fontWeight: "bold",
+                            }}> Roof Control Switch </Text>
+                            <Text style={{
+                                fontSize: "1rem"
+                            }}> Control your roof with one click. </Text>
+                            <br />
+                            <Switch
                                 style={{
-                                    paddingRight: "5rem"
-                                }}
-                            >
-                                <Text style={{
-                                    fontSize: "2rem"
-                                }}> Led Control Switch </Text>
-                                <Text style={{
-                                    fontSize: "1rem"
-                                }}> Turn On/Off your LED. </Text>
-                                <br />
-                                <Switch style={{
                                     width: "5rem",
                                 }}
-                                    value={ledSwitch}
-                                    onChange={switchLed}
-                                />
-                                <Flex
-                                    style={{
-                                        marginTop: "7rem",
-                                        marginBottom: "7rem"
+                                value={servoSwitch}
+                                onChange={switchServo}
 
-                                    }}
-                                    wrap="wrap"
-                                    gap={"small"}
-                                >
-                                    {/* <LineChart data={led} /> */}
-                                    <DualLineChart data={led.slice(Math.max(led.length - 20, 0))} />
-                                </Flex>
-                                
-                            </Flex>
+                            />
+                            <div
+                                style={{
+                                    marginTop: "1.5rem",
+                                    marginBottom: "1.5rem",
+                                    border: "1px solid #030852",
+                                    borderRadius: "10px",
+                                    backgroundColor: "#d6e4ff"
+
+                                }}
+                            >
+                                <DualLineChart data={servo.slice(Math.max(servo.length - 20, 0))} />
+                            </div>
+                        </Flex>
+                        <Flex vertical={true}
+                            style={{
+                                paddingRight: "1.5rem",
+                                border: "2px solid #030852",
+                                padding: "3rem",
+                                margin: "0.75rem",
+                                borderRadius: "10px",
+                            }}
+                        >
+                            <Text style={{
+                                fontSize: "2rem",
+                                fontWeight: "bold",
+                            }}> Led Control Switch </Text>
+                            <Text style={{
+                                fontSize: "1rem"
+                            }}> Turn On/Off your LED. </Text>
+                            <br />
+                            <Switch style={{
+                                width: "5rem",
+                            }}
+                                value={ledSwitch}
+                                onChange={switchLed}
+                            />
+                            <div
+                                style={{
+                                    marginTop: "1.5rem",
+                                    marginBottom: "1.5rem",
+                                    border: "1px solid #030852",
+                                    borderRadius: "10px",
+                                    backgroundColor: "#d6e4ff"
+
+                                }}
+                            >
+                                {/* <LineChart data={led} /> */}
+                                <DualLineChart data={led.slice(Math.max(led.length - 20, 0))} />
+                            </div>
+
                         </Flex>
                     </Flex>
                 </div>

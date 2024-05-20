@@ -170,6 +170,9 @@ const Home = () => {
                             gap="small"
                             position="center"
                             align='center'
+                            style={{
+                                width: "100%",
+                            }}
                         >
                             <div
                                 style={{
@@ -179,10 +182,11 @@ const Home = () => {
                                 }}
                             >
                                 <br></br>
-                                <div
+                                <Flex
                                     style={{
                                         borderRadius: "10px",
                                     }}
+                                    wrap="wrap"
                                 >
                                     <Flex
                                         style={{
@@ -271,7 +275,7 @@ const Home = () => {
                                             </div>
                                         </Flex>
                                     </Flex>
-                                </div>
+                                </Flex>
                                 <div
                                     style={{
                                         backgroundColor: "#f0f0f0",
@@ -352,6 +356,7 @@ const Home = () => {
                                     height: "100%",
                                 }}
                             >
+ 
                                 <div
                                     style={{
                                         position: "fixed",
@@ -365,7 +370,7 @@ const Home = () => {
                                         color: "white",
                                     }}
                                 >
-
+                                    
                                     <div
                                         style={{ margin: "1.5rem" }}
                                     >

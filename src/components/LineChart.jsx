@@ -32,7 +32,8 @@ const LineChart = ({ data }) => {
                 marginLeft: "1.5rem",
                 // marginRight: "1.5rem",
                 marginBottom: "1.5rem",
-                borderRadius: "10px"
+                borderRadius: "10px",
+                backgroundColor: "#d6e4ff"
             }}
         >
             <Line   {...config} />;
