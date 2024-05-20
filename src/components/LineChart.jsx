@@ -30,7 +30,7 @@ const LineChart = ({ data }) => {
                 width: "50vw",
                 border: "1px solid #030852",
                 marginLeft: "1.5rem",
-                marginRight: "1.5rem",
+                // marginRight: "1.5rem",
                 marginBottom: "1.5rem",
                 borderRadius: "10px"
             }}

@@ -1,4 +1,4 @@
-import { Layout, theme, Typography, Flex, Card, Switch, Button } from 'antd';
+import { Layout, theme, Typography, Flex, Card, Switch, Button, Divider } from 'antd';
 import HumidityPlot from '../components/HumidityPlot';
 import LineChart from '../components/LineChart';
 import getTemperatureFeedData from '../services/adafruitio/getTemperatureFeedData';
@@ -144,7 +144,7 @@ const Home = () => {
                             background: colorBgContainer,
                             borderRadius: borderRadiusLG,
                             width: "100%",
-                            paddingLeft: "4.5rem",
+                            paddingLeft: "2rem",
                         }}
                     >
                         <Text strong
@@ -157,171 +157,191 @@ const Home = () => {
                         <Text
                             style={{
                                 fontSize: "1.5em",
-                                marginBottom: "1.5rem"
+                                marginBottom: "1.5rem",
+                                paddingBottom: "1.5rem"
                             }}
                         >
                             Here is a few key insights from our services.
                         </Text>
+                        <Divider />
                         <Flex
                             wrap='wrap'
                             gap="small"
+                            position="center"
+                            align='center'
                         >
                             <div
                                 style={{
-                                    border: "1px solid #001d66",
-
+                                    border: "2px solid #001d66",
                                     borderRadius: "10px",
+                                    padding: "1.5rem",
                                 }}
                             >
                                 <br></br>
-                                <Text
+                                <div
                                     style={{
-                                        fontSize: "1.5em",
-                                        marginLeft: "1.5rem",
+                                        borderRadius: "10px",
                                     }}
-                                    strong
-                                >
-                                    Key Insights
-                                </Text>
-                                <Flex
-                                    style={{
-                                        marginBottom: "2.5rem",
-                                    }}
-                                    wrap="wrap"
-                                    gap={"small"}
                                 >
                                     <Flex
                                         style={{
-
-                                            height: "100%",
-                                            paddingTop: "1.5rem",
+                                            marginBottom: "2.5rem",
+                                            width: "100%",
                                         }}
+                                        wrap="wrap"
+                                        gap={"small"}
+                                        align='center'
                                     >
-                                        <div
+                                        <Text
                                             style={{
-                                                margin: "1.5rem",
-                                                marginTop: "-1.5rem",
-
+                                                fontWeight: "bold",
+                                                fontSize: "1.5em",
+                                                marginLeft: "1.5rem",
+                                            }}
+                                            color='#030852'
+                                            strong
+                                        >
+                                            Overview
+                                        </Text>
+                                        <Flex
+                                            style={{
+                                                width: "100%",
+                                                height: "100%",
+                                                paddingBottom: "1.5rem",
                                             }}
                                         >
-                                            <Card
+                                            <div></div>
+                                            <div
                                                 style={{
-                                                    paddingBottom: "1rem",
-                                                    paddingTop: "1rem",
-                                                    paddingLeft: "1rem",
-                                                    paddingRight: "1rem",
-                                                    border: "1px solid #030852",
-                                                    height: "25rem",
-                                                    width: "15rem"
+                                                    margin: "1.5rem",
                                                 }}
-                                                title="Light"
-                                                bordered={true}
-                                                cover={
-                                                    <img
-                                                        alt="example"
-                                                        src={
-                                                            currentWeather?.current?.is_day ?
-                                                                "https://media.istockphoto.com/id/1007768414/photo/blue-sky-with-bright-sun-and-clouds.jpg?s=612x612&w=0&k=20&c=MGd2-v42lNF7Ie6TtsYoKnohdCfOPFSPQt5XOz4uOy4="
-                                                                : "https://st2.depositphotos.com/4164031/7029/i/450/depositphotos_70298385-stock-photo-deep-space.jpg"
-                                                        }
-                                                        width={150}
-                                                        height={150}
-                                                    />
-                                                }
                                             >
-                                                <Text strong italic
+                                                <Card
                                                     style={{
-                                                        fontWeight: "bold",
-                                                        fontSize: "1rem",
-                                                    }}>
-                                                    Status: {currentWeather?.current?.is_day ? "Good Day Ahead!" : "Sleep Tight!"}
-                                                </Text>
-                                                <br />
-                                                Cloud Coverage: {currentWeather?.current?.cloud ? currentWeather?.current?.cloud : "Loading"} (%)
-                                                <br />
-                                                UV Index: {currentWeather?.current?.uv ? currentWeather?.current?.uv : "Loading"}
-                                            </Card>
-                                        </div>
-                                        <div
-                                            style={{
-                                                margin: "1.5rem",
-                                                marginTop: "-1.5rem",
+                                                        paddingBottom: "1rem",
+                                                        paddingLeft: "1rem",
+                                                        paddingRight: "1rem",
+                                                        border: "1px solid #030852",
+                                                        height: "25rem",
+                                                        width: "15rem"
+                                                    }}
+                                                    title="Light"
+                                                    bordered={true}
+                                                    cover={
+                                                        <img
+                                                            alt="example"
+                                                            src={
+                                                                currentWeather?.current?.is_day ?
+                                                                    "https://media.istockphoto.com/id/1007768414/photo/blue-sky-with-bright-sun-and-clouds.jpg?s=612x612&w=0&k=20&c=MGd2-v42lNF7Ie6TtsYoKnohdCfOPFSPQt5XOz4uOy4="
+                                                                    : "https://st2.depositphotos.com/4164031/7029/i/450/depositphotos_70298385-stock-photo-deep-space.jpg"
+                                                            }
+                                                            width={150}
+                                                            height={150}
+                                                        />
+                                                    }
+                                                >
+                                                    <Text strong italic
+                                                        style={{
+                                                            fontWeight: "bold",
+                                                            fontSize: "1rem",
+                                                        }}>
+                                                        Status: {currentWeather?.current?.is_day ? "Good Day Ahead!" : "Sleep Tight!"}
+                                                    </Text>
+                                                    <br />
+                                                    Cloud Coverage: {currentWeather?.current?.cloud ? currentWeather?.current?.cloud : "Loading"} (%)
+                                                    <br />
+                                                    UV Index: {currentWeather?.current?.uv ? currentWeather?.current?.uv : "Loading"}
+                                                </Card>
+                                            </div>
+                                            <div
+                                                style={{
+                                                    margin: "1.5rem",
 
-                                            }}
-                                        >
-                                            <HumidityPlot data={humidity} />
-                                        </div>
-                                        <div
-                                            style={{
-                                                margin: "1.5rem",
-                                                marginTop: "-1.5rem",
-                                            }}
-                                        >
-                                            <GaugeChart data={temperature} />
-                                        </div>
+                                                }}
+                                            >
+                                                <HumidityPlot data={humidity} />
+                                            </div>
+                                            <div
+                                                style={{
+                                                    margin: "1.5rem",
+                                                }}
+                                            >
+                                                <GaugeChart data={temperature} />
+                                            </div>
+                                        </Flex>
                                     </Flex>
+                                </div>
+                                <div
+                                    style={{
+                                        backgroundColor: "#f0f0f0",
+                                        borderRadius: "10px",
+                                    }}
+                                >
+                                    <Flex
+                                        vertical={true}
+                                        gap={"small"}
+                                    // style={{
+                                    //     paddingRight: "-1.5rem",
+                                    // }}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize: "1.5em",
+                                                marginLeft: "1.5rem"
+                                            }}
+                                            strong
+                                        >
+                                            Key Insights
+                                        </Text>
+                                        <LineChart data={humidity.concat(temperature).concat(light)} />
+                                    </Flex>
+                                    <Flex
+                                        vertical={true}
+                                        gap={"small"}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize: "1.5em",
+                                                marginLeft: "1.5rem"
+                                            }}
+                                            strong
+                                        >
+                                            💦 Humidity
+                                        </Text>
+                                        <LineChart data={humidity} />
+                                    </Flex>
+                                    <Flex
+                                        vertical={true}
+                                        gap={"small"}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize: "1.5em",
+                                                marginLeft: "1.5rem"
+                                            }}
+                                            strong
+                                        >
+                                            🌡️ Temperature
+                                        </Text>
+                                        <LineChart data={temperature} />
+                                    </Flex>
+                                    <Flex
+                                        vertical={true}
+                                        gap={"small"}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize: "1.5em",
+                                                marginLeft: "1.5rem"
+                                            }}
+                                            strong
+                                        >
+                                            💡 Light
+                                        </Text>
+                                        <LineChart data={light} />
+                                    </Flex>
+                                </div>
 
-                                </Flex>
-                                <Flex
-                                    vertical={true}
-                                    gap={"small"}
-                                >
-                                    <Text
-                                        style={{
-                                            fontSize: "1.5em",
-                                            marginLeft: "1.5rem"
-                                        }}
-                                        strong
-                                    >
-                                        Overview
-                                    </Text>
-                                    <LineChart data={humidity.concat(temperature).concat(light)} />
-                                </Flex>
-                                <Flex
-                                    vertical={true}
-                                    gap={"small"}
-                                >
-                                    <Text
-                                        style={{
-                                            fontSize: "1.5em",
-                                            marginLeft: "1.5rem"
-                                        }}
-                                        strong
-                                    >
-                                        Humidity
-                                    </Text>
-                                    <LineChart data={humidity} />
-                                </Flex>
-                                <Flex
-                                    vertical={true}
-                                    gap={"small"}
-                                >
-                                    <Text
-                                        style={{
-                                            fontSize: "1.5em",
-                                            marginLeft: "1.5rem"
-                                        }}
-                                        strong
-                                    >
-                                        Temperature
-                                    </Text>
-                                    <LineChart data={temperature} />
-                                </Flex>
-                                <Flex
-                                    vertical={true}
-                                    gap={"small"}
-                                >
-                                    <Text
-                                        style={{
-                                            fontSize: "1.5em",
-                                            marginLeft: "1.5rem"
-                                        }}
-                                        strong
-                                    >
-                                        Light
-                                    </Text>
-                                    <LineChart data={light} />
-                                </Flex>
                             </div>
                             <div
                                 style={{
