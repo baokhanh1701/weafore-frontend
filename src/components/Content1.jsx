@@ -38,21 +38,22 @@ export default function Content1() {
                     >
                         The best way to protect your home from harsh weather
                     </div>
-                    <a
-                        className="jsx-3325839890 jsx-4002731451 btn cta-btn"
-                        href="/signin"
-
-                    >
-                        Join with us
-                    </a>
-                    <br></br>
-                    <a
-                        className="jsx-3325839890 jsx-4002731451 btn cta-btn"
-                        href="/home"
-                        onClick={() => localStorage.setItem('username', 'Guest')}
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                        <a
+                            className="jsx-3325839890 jsx-4002731451 btn cta-btn"
+                            href="/signin"
+                            style={{marginRight: '1em'}}
                         >
-                        Guest Login
-                    </a>
+                            Join with us
+                        </a>
+                        <a
+                            className="jsx-3325839890 jsx-4002731451 btn cta-btn"
+                            href="/home"
+                            onClick={() => localStorage.setItem('username', 'Guest')}
+                        >
+                            Guest Login
+                        </a>
+                    </div>
                 </div>
                 <br></br>
 <br></br>
