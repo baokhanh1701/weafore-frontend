@@ -130,7 +130,7 @@ const Home = () => {
                     <Text
                         style={{
                             fontSize: "3.5em",
-                            paddingLeft: "1.5rem",
+                            paddingLeft: "3rem",
                             color: "white"
                         }}>
                         Dashboard
@@ -145,7 +145,7 @@ const Home = () => {
                             borderRadius: borderRadiusLG,
                             width: "100%",
                             paddingLeft: "3rem",
-                            paddingRight: "1.5rem",
+                            paddingRight: "3rem",
                             backgroundImage: 'url("/scattered-forcefields.svg")',
                             backgroundAttachment: 'fixed'
                         }}
@@ -181,7 +181,7 @@ const Home = () => {
                                 style={{
                                     border: "2px solid #001d66",
                                     borderRadius: "10px",
-                                    padding: "1.5rem",
+                                    padding: "4.5rem",
                                 }}
                             >
                                 <br></br>
