@@ -144,12 +144,13 @@ const Home = () => {
                             background: colorBgContainer,
                             borderRadius: borderRadiusLG,
                             width: "100%",
-                            paddingLeft: "2rem",
+                            paddingLeft: "3rem",
                         }}
                     >
                         <Text strong
                             style={{
-                                fontSize: "3em"
+                                fontSize: "3em",
+                                width: "100%",
                             }}>
                             Welcome to Weafore! ☀️
                         </Text>
@@ -354,7 +355,7 @@ const Home = () => {
                                 <div
                                     style={{
                                         position: "fixed",
-                                        top: "55%",
+                                        top: "50%",
                                         left: "80%",
                                         transform: "translate(-50%, -50%)",
                                         padding: "10px",
@@ -364,12 +365,13 @@ const Home = () => {
                                         color: "white",
                                     }}
                                 >
+
                                     <div
-                                        style={{ margin: "2.5rem" }}
+                                        style={{ margin: "1.5rem" }}
                                     >
                                         <Flex vertical={true}
                                             style={{
-                                                paddingRight: "2.5rem"
+                                                paddingRight: "1.5rem"
                                             }}
                                         >
                                             <Text style={{
@@ -380,20 +382,15 @@ const Home = () => {
                                                 fontSize: "1rem",
                                                 fontWeight: "bold"
                                             }}> Roof Control Switch </Text>
-                                            <Text style={{
-                                            }}> Control your roof with one click. </Text>
                                             <Switch
                                                 style={{
                                                     width: "5rem",
-                                                    marginTop: "1rem"
                                                 }}
                                                 value={servoSwitch}
                                                 onChange={switchServo}
 
                                             />
                                         </Flex>
-                                        <br />
-                                        <br />
                                         <Flex vertical={true}
                                             style={{
                                                 paddingRight: "5rem"
@@ -403,25 +400,21 @@ const Home = () => {
                                                 fontSize: "1rem",
                                                 fontWeight: "bold"
                                             }}> Led Control Switch </Text>
-                                            <Text style={{
-                                            }}> Turn On/Off your LED. </Text>
                                             <Switch style={{
                                                 width: "5rem",
-                                                marginTop: "1rem"
                                             }}
                                                 value={ledSwitch}
                                                 onChange={switchLed}
                                             />
                                         </Flex>
-                                        <br />
-                                        <br />
                                         <Flex
                                             vertical={true}
                                         >
-                                            <Button style={{ margin: "1rem" }} href='#humdity_data'> Humididy Data</Button>
-                                            <Button style={{ margin: "1rem" }} href='#temperature_data'> Temperature Data</Button>
-                                            <Button style={{ margin: "1rem" }} href='#light_data'> Light Data</Button>
-                                            <Link style={{ margin: "1rem" }} strong href="/control-panel"> Go to Control Panel...</Link>
+                                            <Button style={{ margin: "0.5rem" }} href='#humdity_data'> Humididy Data</Button>
+                                            <Button style={{ margin: "0.5rem" }} href='#temperature_data'> Temperature Data</Button>
+                                            <Button style={{ margin: "0.5rem" }} href='#light_data'> Light Data</Button>
+                                            <Link style={{ margin: "0.5rem" }} strong href="/control-panel"> Go to Control Panel...</Link>
+                                            <Link style={{ margin: "0.5rem" }} strong href="/schedule"> Go to Schedule...</Link>
                                         </Flex>
                                     </div>
                                 </div>
