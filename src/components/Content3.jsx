@@ -540,9 +540,10 @@ export default function Content3() {
                                         marginTop: "-2rem",
                                         marginBottom: "-3rem",
                                         backgroundImage:
-                                            'url("https://lu.ma/marketing/homepage/map.png")',
+                                            'url("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/World_map_%28blue_dots%29.svg/1200px-World_map_%28blue_dots%29.svg.png")',
                                         backgroundSize: "cover",
                                         position: "relative",
+                                        marginLeft: "-4em",
                                     }}
                                 >
                                     <div
@@ -561,7 +562,7 @@ export default function Content3() {
                                                 position: "absolute",
                                                 fontSize: "0.9rem",
                                                 top: "170px",
-                                                left: "125px",
+                                                left: "145px",
                                             }}
                                         >
                                             <div
@@ -585,7 +586,7 @@ export default function Content3() {
                                                 position: "absolute",
                                                 fontSize: "0.9rem",
                                                 top: "340px",
-                                                left: "185px",
+                                                left: "215px",
                                             }}
                                         >
                                             <div
@@ -608,7 +609,7 @@ export default function Content3() {
                                                 position: "absolute",
                                                 fontSize: "0.9rem",
                                                 top: "100px",
-                                                left: "80px",
+                                                left: "130px",
                                             }}
                                         >
                                             <div
@@ -631,7 +632,7 @@ export default function Content3() {
                                                 position: "absolute",
                                                 fontSize: "0.9rem",
                                                 top: "100px",
-                                                left: "180px",
+                                                left: "280px",
                                             }}
                                         >
                                             <div
@@ -654,7 +655,7 @@ export default function Content3() {
                                                 position: "absolute",
                                                 fontSize: "0.9rem",
                                                 top: "150px",
-                                                left: "80px",
+                                                left: "120px",
                                             }}
                                         >
                                             <div
@@ -677,7 +678,7 @@ export default function Content3() {
                                                 position: "absolute",
                                                 fontSize: "0.9rem",
                                                 top: "250px",
-                                                left: "190px",
+                                                left: "210px",
                                             }}
                                         >
                                             <div
@@ -769,7 +770,7 @@ export default function Content3() {
                                                 position: "absolute",
                                                 fontSize: "0.9rem",
                                                 top: "680px",
-                                                left: "330px",
+                                                left: "350px",
                                             }}
                                         >
                                             <div
