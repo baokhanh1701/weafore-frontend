@@ -64,7 +64,9 @@ const ControlPanel = () => {
                 style={{
                     width: "100vw",
                     height: "10vh",
-                    backgroundColor: "#1677ff"
+                    backgroundColor: "#1677ff",
+                    // backgroundImage: 'url("/public/radiant-gradient.svg")',
+                    // backgroundAttachment: 'fixed'
                 }}
             >
                 <Text
@@ -88,11 +90,14 @@ const ControlPanel = () => {
                         minHeight: 360,
                         background: colorBgContainer,
                         borderRadius: borderRadiusLG,
+                        backgroundImage: 'url("/public/scattered-forcefields.svg")',
+                        backgroundAttachment: 'fixed'
                     }}
                 >
                     <Flex
                         style={{
                             marginBottom: "5rem",
+
                         }}
                         wrap="wrap"
                         gap={"small"}
@@ -235,6 +240,14 @@ const ControlPanel = () => {
                         </Flex>
                     </Flex>
                 </div>
+                {/* <img src={"/public/cloud-backup-svgrepo-com.svg"} style={{
+                    width: "25%",
+                    height: "25%",
+                    position: "fixed",
+                    bottom: 0,
+                    right: 0,
+                    zIndex: 1000,
+                }} /> */}
             </Content>
         </Layout>
     )

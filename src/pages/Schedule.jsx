@@ -108,7 +108,7 @@ const Schedule = () => {
                     style={{
                         width: "100vw",
                         height: "10vh",
-                        backgroundColor: "#1677ff"
+                        backgroundColor: "#1677ff",
                     }}
                 >
                     <Text
@@ -133,6 +133,8 @@ const Schedule = () => {
                             minHeight: 360,
                             background: colorBgContainer,
                             borderRadius: borderRadiusLG,
+                            backgroundImage: 'url("/public/scattered-forcefields.svg")',
+                            backgroundAttachment: 'fixed'
                         }}
                     >
                         <Text

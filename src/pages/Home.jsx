@@ -130,7 +130,7 @@ const Home = () => {
                     <Text
                         style={{
                             fontSize: "3.5em",
-                            paddingLeft: "2rem",
+                            paddingLeft: "1.5rem",
                             color: "white"
                         }}>
                         Dashboard
@@ -145,6 +145,9 @@ const Home = () => {
                             borderRadius: borderRadiusLG,
                             width: "100%",
                             paddingLeft: "3rem",
+                            paddingRight: "1.5rem",
+                            backgroundImage: 'url("/public/scattered-forcefields.svg")',
+                            backgroundAttachment: 'fixed'
                         }}
                     >
                         <Text strong
@@ -356,12 +359,12 @@ const Home = () => {
                                     height: "100%",
                                 }}
                             >
- 
+
                                 <div
                                     style={{
                                         position: "fixed",
-                                        top: "50%",
-                                        left: "80%",
+                                        bottom: 0.5,
+                                        right: 0.2,
                                         transform: "translate(-50%, -50%)",
                                         padding: "10px",
                                         borderRadius: "10px",
@@ -370,7 +373,7 @@ const Home = () => {
                                         color: "white",
                                     }}
                                 >
-                                    
+
                                     <div
                                         style={{ margin: "1.5rem" }}
                                     >
@@ -424,9 +427,15 @@ const Home = () => {
                                     </div>
                                 </div>
                             </div>
-
                         </Flex>
-
+                        {/* <img src={"/public/cloud-backup-svgrepo-com.svg"} style={{
+                            width: "25%",
+                            height: "25%",
+                            position: "fixed",
+                            bottom: 0,
+                            right: 0,
+                            zIndex: 1000,
+                        }} /> */}
                     </div>
                 </Content>
             </Layout>
