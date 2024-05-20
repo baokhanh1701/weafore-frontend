@@ -24,11 +24,22 @@ const GaugeChart = ({ data }) => {
         <Flex
             vertical={true}
             style={{
-                width: "20rem",
-                padding: 24,
+                width: "15rem",
+                height: "25rem",
+                border: "1px solid #614700",
+                borderRadius: "10px",
             }}
         >
-            <Statistic title="Current: " value={data[0] ? data[0].value : "Loading..."} precision={2} />
+            <Statistic
+            style={{
+                fontSize: "2rem",
+                fontWeight: "bold",
+                paddingBottom: "1rem",
+                paddingTop: "1rem",
+                paddingLeft: "1rem",
+                paddingRight: "1rem",
+            }}
+            title="Current (Celcius): " value={data[0] ? data[0].value : "Loading..."} precision={2} />
             <Gauge {...config} />
         </Flex>
     );

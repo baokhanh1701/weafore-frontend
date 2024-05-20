@@ -173,6 +173,7 @@ const ControlPanel = () => {
                                     {/* <LineChart data={led} /> */}
                                     <DualLineChart data={led.slice(Math.max(led.length - 20, 0))} />
                                 </Flex>
+                                
                             </Flex>
                         </Flex>
                     </Flex>

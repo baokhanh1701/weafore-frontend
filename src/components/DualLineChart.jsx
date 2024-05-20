@@ -19,11 +19,7 @@ const DualLineChart = ({ data }) => {
         ],
     };
     return (
-        <Flex
-            style={{
-                width: "100%",
-            }}
-        >
+        <Flex>
             <DualAxes {...config} />
 
         </Flex>
