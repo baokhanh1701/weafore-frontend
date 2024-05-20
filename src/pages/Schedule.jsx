@@ -133,7 +133,7 @@ const Schedule = () => {
                             minHeight: 360,
                             background: colorBgContainer,
                             borderRadius: borderRadiusLG,
-                            backgroundImage: 'url("/public/scattered-forcefields.svg")',
+                            backgroundImage: 'url("/scattered-forcefields.svg")',
                             backgroundAttachment: 'fixed'
                         }}
                     >

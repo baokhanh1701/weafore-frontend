@@ -146,7 +146,7 @@ const Home = () => {
                             width: "100%",
                             paddingLeft: "3rem",
                             paddingRight: "1.5rem",
-                            backgroundImage: 'url("/public/scattered-forcefields.svg")',
+                            backgroundImage: 'url("/scattered-forcefields.svg")',
                             backgroundAttachment: 'fixed'
                         }}
                     >
