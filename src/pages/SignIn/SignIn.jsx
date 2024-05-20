@@ -6,10 +6,10 @@ import { useNavigate, Link } from 'react-router-dom';
 import validator from 'validator';
 
 function SignIn() {
-    const PROXY_URL = 'https://weafore-backend-git-main-baokhanh1701s-projects.vercel.app'
+    const PROXY_URL = 'http://localhost:8000'
     const URL_SIGNIN = '/signin'
     const URL_SIGNUP = '/signup'
-    const [signIn, toggle] = useState(true);
+    const [signIn, toggle] = useState();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
@@ -21,22 +21,16 @@ function SignIn() {
         }
         e.preventDefault();
         try {
-            await fetch(PROXY_URL + URL_SIGNIN,
-                {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        "username": username,
-                        "email": email, "password": password
-                    })
-                }
-            )
+            await axios.post(PROXY_URL + URL_SIGNIN, {
+                username, email, password
+            })
                 .then(res => {
-                    if (res.data.message === "Login successful") {
-                        navigate('/home', { state: { username: res.data.username } });
+                    if (res.data.message == "Login successful") {
+                        console.log("Fucking login successful")
+                        localStorage.setItem("username", res.data.username);
+                        navigate('/home', { 
+                            state: { username: res.data.username } 
+                        });
                     }
                     else if (res.data === "Incorrect password") {
                         alert("Incorrect password");
@@ -60,19 +54,9 @@ function SignIn() {
         }
         e.preventDefault();
         try {
-            await fetch(PROXY_URL + URL_SIGNIN,
-                {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        "username": username,
-                        "email": email, "password": password
-                    })
-                }
-            )
+            await axios.post(PROXY_URL + URL_SIGNUP, {
+                username, email, password
+            })
                 .then(res => {
                     if (res.data === "User already exists") {
                         alert("User already exists");
