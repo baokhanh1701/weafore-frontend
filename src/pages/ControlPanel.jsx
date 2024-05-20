@@ -107,23 +107,51 @@ const ControlPanel = () => {
                                 borderRadius: "10px",
                             }}
                         >
+                            <Flex
+                                vertical={false}
+                            >
+                                <Flex vertical={true}
+                                    style={{
+                                        border: "1px solid",
+                                        paddingLeft: "3rem",
+                                        paddingRight: "3rem",
+                                        borderTopLeftRadius: "10px",
+                                        borderBottomLeftRadius: "10px",
+                                    }}
+                                >
+                                    <Text style={{
+                                        fontSize: "2rem",
+                                        fontWeight: "bold",
+                                    }}> 🏡 Roof Control Switch </Text>
+                                    <Text style={{
+                                        fontSize: "1rem"
+                                    }}> Control your roof with one click. </Text>
+                                </Flex>
+                                <Flex
+                                    style={{
+                                        border: "1px solid",
+                                        paddingLeft: "3rem",
+                                        paddingRight: "3rem",
+                                        borderTopRightRadius: "10px",
+                                        borderBottomRightRadius: "10px",
+                                        backgroundColor: "#bfbfbf"
 
-                            <Text style={{
-                                fontSize: "2rem",
-                                fontWeight: "bold",
-                            }}> Roof Control Switch </Text>
-                            <Text style={{
-                                fontSize: "1rem"
-                            }}> Control your roof with one click. </Text>
+                                    }}
+                                >
+                                    <Switch
+                                        style={{
+                                            width: "4.5rem",
+                                            margin: "1.5rem",
+                                        }}
+                                        size='2rem'
+                                        value={servoSwitch}
+                                        onChange={switchServo}
+                                    />
+                                </Flex>
+                            </Flex>
+
                             <br />
-                            <Switch
-                                style={{
-                                    width: "5rem",
-                                }}
-                                value={servoSwitch}
-                                onChange={switchServo}
 
-                            />
                             <div
                                 style={{
                                     marginTop: "1.5rem",
@@ -146,20 +174,50 @@ const ControlPanel = () => {
                                 borderRadius: "10px",
                             }}
                         >
-                            <Text style={{
-                                fontSize: "2rem",
-                                fontWeight: "bold",
-                            }}> Led Control Switch </Text>
-                            <Text style={{
-                                fontSize: "1rem"
-                            }}> Turn On/Off your LED. </Text>
+                            <Flex
+                                vertical={false}
+                            >
+                                <Flex
+                                    vertical={true}
+                                    style={{
+                                        border: "1px solid",
+                                        paddingLeft: "3rem",
+                                        paddingRight: "3rem",
+                                        borderTopLeftRadius: "10px",
+                                        borderBottomLeftRadius: "10px",
+                                    }}
+                                >
+                                    <Text style={{
+                                        fontSize: "2rem",
+                                        fontWeight: "bold",
+                                    }}> 💡 Led Control Switch </Text>
+                                    <Text style={{
+                                        fontSize: "1rem"
+                                    }}> Turn On/Off your LED. </Text>
+                                </Flex>
+                                <Flex
+                                    style={{
+                                        border: "1px solid",
+                                        paddingLeft: "3rem",
+                                        paddingRight: "3rem",
+                                        borderTopRightRadius: "10px",
+                                        borderBottomRightRadius: "10px",
+                                        backgroundColor: "#bfbfbf"
+                                    }}
+                                >
+                                    <Switch style={{
+                                        width: "5rem",
+                                        margin: "1.5rem",
+                                    }}
+                                        size="2rem"
+                                        value={ledSwitch}
+                                        onChange={switchLed}
+                                    />
+                                </Flex>
+                            </Flex>
+
                             <br />
-                            <Switch style={{
-                                width: "5rem",
-                            }}
-                                value={ledSwitch}
-                                onChange={switchLed}
-                            />
+
                             <div
                                 style={{
                                     marginTop: "1.5rem",
