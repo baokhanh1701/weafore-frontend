@@ -9,7 +9,7 @@ export default function Content1() {
         <>
             <div
                 className="jsx-3325839890 jsx-4002731451 hero"
-                style={{ position: 'relative', zIndex: 0, backgroundColor: '#000' }}
+                style={{ position: 'relative', zIndex: 0, backgroundColor: '#000', height: '40vh' }}
             >
                 <video autoPlay loop muted playsInline style={{
                     position: 'absolute',
@@ -24,11 +24,10 @@ export default function Content1() {
                 </video>
                 <div
                     className="jsx-3325839890 jsx-4002731451 hero-text"
-
+                    style={{ position: 'absolute', top: '-1rem', left: 0, right: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
                 >
                     <h1
                         className="jsx-3325839890 jsx-4002731451"
-
                     >
                         Weafore
                     </h1>
@@ -55,12 +54,7 @@ export default function Content1() {
                         </a>
                     </div>
                 </div>
-                <br></br>
-<br></br>
-<br></br>
-<br></br>
             </div>
-
         </>
     );
 }
