@@ -181,7 +181,8 @@ const Home = () => {
                                 style={{
                                     border: "2px solid #001d66",
                                     borderRadius: "10px",
-                                    padding: "4.5rem",
+                                    paddingRight: "4.5rem",
+                                    paddingLeft: "3rem"
                                 }}
                             >
                                 <br></br>
@@ -281,7 +282,6 @@ const Home = () => {
                                 </Flex>
                                 <div
                                     style={{
-                                        backgroundColor: "#f0f0f0",
                                         borderRadius: "10px",
                                     }}
                                 >
