@@ -298,6 +298,7 @@ const Home = () => {
                                     <Flex
                                         vertical={true}
                                         gap={"small"}
+                                        id='humdity_data'
                                     >
                                         <Text
                                             style={{
@@ -313,6 +314,7 @@ const Home = () => {
                                     <Flex
                                         vertical={true}
                                         gap={"small"}
+                                        id='temperature_data'
                                     >
                                         <Text
                                             style={{
@@ -328,6 +330,7 @@ const Home = () => {
                                     <Flex
                                         vertical={true}
                                         gap={"small"}
+                                        id="light_data"
                                     >
                                         <Text
                                             style={{
@@ -382,6 +385,7 @@ const Home = () => {
                                             <Switch
                                                 style={{
                                                     width: "5rem",
+                                                    marginTop: "1rem"
                                                 }}
                                                 value={servoSwitch}
                                                 onChange={switchServo}
@@ -403,6 +407,7 @@ const Home = () => {
                                             }}> Turn On/Off your LED. </Text>
                                             <Switch style={{
                                                 width: "5rem",
+                                                marginTop: "1rem"
                                             }}
                                                 value={ledSwitch}
                                                 onChange={switchLed}
@@ -413,10 +418,9 @@ const Home = () => {
                                         <Flex
                                             vertical={true}
                                         >
-                                            <Button style={{ margin: "1rem" }} onClick={getTemperatureFeedData}> Get Temperature Data</Button>
-                                            <Button style={{ margin: "1rem" }} onClick={getLightFeedData}> Get Light Data</Button>
-                                            <Button style={{ margin: "1rem" }} onClick={getHumidityFeedData}> Get Humidity Data</Button>
-                                            <Button style={{ margin: "1rem" }} onClick={getLedFeedData}> Get Led Data</Button>
+                                            <Button style={{ margin: "1rem" }} href='#humdity_data'> Humididy Data</Button>
+                                            <Button style={{ margin: "1rem" }} href='#temperature_data'> Temperature Data</Button>
+                                            <Button style={{ margin: "1rem" }} href='#light_data'> Light Data</Button>
                                             <Link style={{ margin: "1rem" }} strong href="/control-panel"> Go to Control Panel...</Link>
                                         </Flex>
                                     </div>
