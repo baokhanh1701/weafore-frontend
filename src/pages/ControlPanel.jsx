@@ -62,7 +62,7 @@ const ControlPanel = () => {
         <Layout>
             <div
                 style={{
-                    width: "100vw",
+                    width: "100%",
                     height: "10vh",
                     backgroundColor: "#1677ff"
                 }}
@@ -79,7 +79,7 @@ const ControlPanel = () => {
             <Content
                 style={{
                     margin: '24px 16px 0',
-                    width: "100vw",
+                    width: "100%",
                 }}
             >
                 <div

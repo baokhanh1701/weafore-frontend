@@ -20,7 +20,7 @@ const LineChart = ({ data }) => {
         style: {
             lineWidth: 2,
         },
-        
+        colorField: 'category'
     };
 
     return (

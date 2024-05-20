@@ -14,10 +14,11 @@ import DualLineChart from '../components/DualLineChart';
 import createServoFeedData from '../services/adafruitio/createServoFeedData';
 import createLedFeedData from '../services/adafruitio/createLedFeedData';
 const { Content } = Layout;
-const { Text } = Typography;
+const { Text, Link } = Typography;
 
 
 const Home = () => {
+    const [allData, setAllData] = useState([])
     const [led, setLed] = useState([])
     const [servo, setServo] = useState([])
     const [currentWeather, setCurrentWeather] = useState({})
@@ -28,6 +29,7 @@ const Home = () => {
     const [ledSwitch, setLedSwitch] = useState(0)
 
     const fetchServoData = async () => {
+        const jsonata_expression = jsonata("$reverse($.{'value': $number($.value),'date': $.created_at})")
         const servo_data = await getServoFeedData()
         // console.log(servo_data)
         const result = await jsonata_expression.evaluate(servo_data)
@@ -36,6 +38,7 @@ const Home = () => {
     }
 
     const fetchLedData = async () => {
+        const jsonata_expression = jsonata("$reverse($.{'value': $number($.value),'date': $.created_at})")
         const led_data = await getLedFeedData()
         // console.log(led_data)
         const result = await jsonata_expression.evaluate(led_data)
@@ -57,35 +60,37 @@ const Home = () => {
         await createServoFeedData(+value)
         alert('Switched servo')
     }
-    useEffect(() => {
-        fetchLedData()
-        fetchServoData()
-    }, [servoSwitch, ledSwitch])
+
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
 
-    const jsonata_expression = jsonata("$reverse($.{'value': $number($.value),'date': $.created_at})")
 
     const fetchTemperatureData = async () => {
+        const jsonata_expression_temperature = jsonata("$reverse($.{'value': $number($.value),'date': $.created_at, 'category': 'temperature'})")
         const temperature_data = await getTemperatureFeedData()
         // console.log(temperature_data)
-        const result = await jsonata_expression.evaluate(temperature_data)
+        const result = await jsonata_expression_temperature.evaluate(temperature_data)
+
         setTemperature(result)
     }
 
     const fetchHumidityData = async () => {
+        const jsonata_expression = jsonata("$reverse($.{'value': $number($.value),'date': $.created_at, 'category': 'humidity'})")
         const humidity_data = await getHumidityFeedData()
         // console.log(humidity_data)
         const result = await jsonata_expression.evaluate(humidity_data)
+
         setHumidity(result)
         // setHumidity(humidity_data)
     }
 
     const fetchLightData = async () => {
+        const jsonata_expression = jsonata("$reverse($.{'value': $number($.value),'date': $.created_at, 'category': 'light'})")
         const light_data = await getLightFeedData()
         // console.log(light_data)
         const result = await jsonata_expression.evaluate(light_data)
+
         setLight(result)
     }
 
@@ -94,21 +99,32 @@ const Home = () => {
         setCurrentWeather(result);
         return result;
     }
+
+    const appendAllData = (new_data) => {
+        setAllData(new_data);
+    }
+    useEffect(() => {
+        fetchLedData()
+        fetchServoData()
+    }, [servoSwitch, ledSwitch])
+
     useEffect(() => {
         fetchTemperatureData()
         fetchHumidityData()
         fetchLightData()
         fetchCurrentWeatherData()
     }, [])
+    // useEffect(() => {
+    //     appendAllData(all_data)
+    // }, [humidity, temperature, light])
     return (
         <Layout>
             <Layout>
-
                 <div
                     style={{
                         width: "100%",
                         height: "10vh",
-                        backgroundColor: "#1677ff"
+                        backgroundColor: "#1677ff",
                     }}
                 >
                     <Text
@@ -128,13 +144,14 @@ const Home = () => {
                             background: colorBgContainer,
                             borderRadius: borderRadiusLG,
                             width: "100%",
+                            paddingLeft: "4.5rem",
                         }}
                     >
                         <Text strong
                             style={{
                                 fontSize: "3em"
                             }}>
-                            Welcome to Weafore!
+                            Welcome to Weafore! ☀️
                         </Text>
                         <br></br>
                         <Text
@@ -256,6 +273,21 @@ const Home = () => {
                                         }}
                                         strong
                                     >
+                                        Overview
+                                    </Text>
+                                    <LineChart data={humidity.concat(temperature).concat(light)} />
+                                </Flex>
+                                <Flex
+                                    vertical={true}
+                                    gap={"small"}
+                                >
+                                    <Text
+                                        style={{
+                                            fontSize: "1.5em",
+                                            marginLeft: "1.5rem"
+                                        }}
+                                        strong
+                                    >
                                         Humidity
                                     </Text>
                                     <LineChart data={humidity} />
@@ -294,20 +326,19 @@ const Home = () => {
                             <div
                                 style={{
                                     height: "100%",
-                                    marginLeft: "10rem",
                                 }}
                             >
                                 <div
                                     style={{
                                         position: "fixed",
-                                        top: "50%",
+                                        top: "55%",
                                         left: "80%",
                                         transform: "translate(-50%, -50%)",
                                         padding: "10px",
                                         borderRadius: "10px",
                                         border: "1px solid #001d66",
                                         backgroundColor: "#91caff",
-                                        color: "white"
+                                        color: "white",
                                     }}
                                 >
                                     <div
@@ -318,6 +349,10 @@ const Home = () => {
                                                 paddingRight: "2.5rem"
                                             }}
                                         >
+                                            <Text style={{
+                                                fontSize: "1.75rem",
+                                                fontWeight: "bold"
+                                            }}> Quick Toolbar </Text>
                                             <Text style={{
                                                 fontSize: "1rem",
                                                 fontWeight: "bold"
@@ -357,15 +392,12 @@ const Home = () => {
                                         <br />
                                         <Flex
                                             vertical={true}
-                                            style={{
-                                                paddingRight: "5rem"
-                                            }}
                                         >
-                                            <Button style={{ margin: "1rem" }} onClick={getTemperatureFeedData}> Get Temperature Feed Data</Button>
-                                            <Button style={{ margin: "1rem" }} onClick={getLightFeedData}> Get Light Feed Data</Button>
-                                            <Button style={{ margin: "1rem" }} onClick={getHumidityFeedData}> Get Humidity Feed Data</Button>
-                                            <Button style={{ margin: "1rem" }} onClick={getLedFeedData}> Get Led Feed Data</Button>
-
+                                            <Button style={{ margin: "1rem" }} onClick={getTemperatureFeedData}> Get Temperature Data</Button>
+                                            <Button style={{ margin: "1rem" }} onClick={getLightFeedData}> Get Light Data</Button>
+                                            <Button style={{ margin: "1rem" }} onClick={getHumidityFeedData}> Get Humidity Data</Button>
+                                            <Button style={{ margin: "1rem" }} onClick={getLedFeedData}> Get Led Data</Button>
+                                            <Link style={{ margin: "1rem" }} strong href="/control-panel"> Go to Control Panel...</Link>
                                         </Flex>
                                     </div>
                                 </div>
