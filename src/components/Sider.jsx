@@ -2,7 +2,8 @@ import { Menu } from "antd";
 import {
     AppstoreOutlined,
     CloudOutlined,
-    ScheduleOutlined
+    ScheduleOutlined,
+    LogoutOutlined
 } from '@ant-design/icons';
 import { useNavigate } from "react-router-dom";
 import { Layout, Typography } from 'antd';
@@ -79,12 +80,18 @@ const WeaforeSider = () => {
                                 label: "Schedule",
                                 key: "/schedule",
                                 icon: <ScheduleOutlined />
+                            },
+                            {
+                                label: "Log Out",
+                                key: "signout",
+                                icon: <LogoutOutlined />
                             }
                         ]
                     }
                     onClick={({ key }) => {
                         if (key === "signout") {
                             //TODO: SignOut
+                            navigate("/")
                         }
                         else {
                             //TODO: Navigate
